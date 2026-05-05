@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer">
 <title>LaSelecShop · Defender la Tercera</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -941,6 +940,22 @@ const productos = [{"id":1,"nombre":"Camiseta Titular","costo":25000,"markup":2.
    ⬆⬆⬆ FIN ZONA EDITABLE - NO TOQUES NADA ABAJO ⬆⬆⬆
    ════════════════════════════════════════════════════════════════════════════ */
 
+// ===== CONVERTIR URLs DE DRIVE AL FORMATO MÁS ESTABLE (lh3.googleusercontent) =====
+function convertirURL(url){
+  if(!url) return "";
+  // Si viene como thumbnail?id=XXX, lo convertimos a lh3
+  const match = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if(match){
+    return `https://lh3.googleusercontent.com/d/${match[1]}=w800`;
+  }
+  // Si viene como /d/XXX, también
+  const match2 = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if(match2){
+    return `https://lh3.googleusercontent.com/d/${match2[1]}=w800`;
+  }
+  return url;
+}
+
 // ===== INIT =====
 function init(){
   renderProductos();
@@ -995,7 +1010,7 @@ function productoHTML(p, key, esDestacado){
   const cuotaStr = cuota.toLocaleString("es-AR");
 
   // Múltiples imágenes
-  const imgs = String(p.imagenes).split("|").map(u => u.trim()).filter(u => u);
+  const imgs = String(p.imagenes).split("|").map(u => convertirURL(u.trim())).filter(u => u);
   galleryIndices[key] = 0;
   const tieneGaleria = imgs.length > 1;
 
@@ -1018,8 +1033,6 @@ function productoHTML(p, key, esDestacado){
         ${descuento > 0 ? `<div class="product-discount">-${descuento}%</div>` : ''}
         <img class="product-img" id="img-${key}" src="${imgs[0]}" alt="${p.nombre}"
              data-imgs='${JSON.stringify(imgs)}'
-             referrerpolicy="no-referrer"
-             crossorigin="anonymous"
              onerror="this.style.opacity='0.2';this.alt='Sin foto'" loading="lazy">
         ${dotsHTML}
       </div>
@@ -1079,7 +1092,7 @@ function agregarAlCarrito(key, id){
   const p = productos.find(x => x.id === id);
   if(!p) return;
 
-  const primerImg = String(p.imagenes).split("|")[0].trim();
+  const primerImg = convertirURL(String(p.imagenes).split("|")[0].trim());
   const existente = cart.find(i => i.id === p.id && i.talle === talle);
   if(existente){
     existente.qty++;
@@ -1125,7 +1138,7 @@ function renderCart(){
     total += sub;
     html += `
       <div class="cart-item">
-        <img class="cart-item-img" src="${item.img}" alt="${item.nombre}" referrerpolicy="no-referrer" onerror="this.style.opacity=0.3">
+        <img class="cart-item-img" src="${item.img}" alt="${item.nombre}" onerror="this.style.opacity=0.3">
         <div class="cart-item-info">
           <div class="cart-item-name">${item.nombre}</div>
           <div class="cart-item-meta">Talle: ${item.talle}</div>
