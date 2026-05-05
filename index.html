@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>LaSelecShop · Defender la Tercera</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --celeste:#74ACDF;
+  --celeste-deep:#3a7bb5;
+  --celeste-soft:#e8f1f9;
+  --blanco:#ffffff;
+  --crema:#f6f3ec;
+  --tinta:#0b1d33;
+  --tinta-soft:rgba(11,29,51,0.08);
+  --oro:#c9a14a;
+  --negro:#0a0a0a;
+  --rojo:#e63946;
+  --verde:#25d366;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Archivo',sans-serif;
+  background:var(--crema);
+  color:var(--tinta);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===== TOPBAR ===== */
+.topbar{
+  background:var(--tinta);
+  color:white;
+  padding:10px 20px;
+  overflow:hidden;
+  position:relative;
+}
+.topbar-track{
+  display:flex;
+  gap:3rem;
+  white-space:nowrap;
+  animation:scroll 30s linear infinite;
+  font-size:0.8rem;
+  letter-spacing:0.1em;
+  font-weight:500;
+}
+.topbar-track span{display:inline-flex;align-items:center;gap:0.5rem}
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ===== NAV ===== */
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(246,243,236,0.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--tinta-soft);
+}
+.nav-inner{
+  max-width:1400px;
+  margin:0 auto;
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.7rem;
+  letter-spacing:0.08em;
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+}
+.logo .stars{color:var(--oro);font-size:0.75rem;letter-spacing:0.2em}
+.cart-trigger{
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+  background:var(--tinta);
+  color:white;
+  border:none;
+  padding:0.65rem 1.1rem;
+  border-radius:100px;
+  cursor:pointer;
+  font-family:'Archivo',sans-serif;
+  font-weight:600;
+  font-size:0.85rem;
+  transition:all 0.2s;
+}
+.cart-trigger:hover{background:var(--celeste-deep);transform:translateY(-1px)}
+.cart-count-badge{
+  background:var(--oro);
+  color:var(--negro);
+  border-radius:50%;
+  width:22px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.7rem;
+  font-weight:800;
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  padding:80px 24px 60px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at top right, rgba(116,172,223,0.3), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(116,172,223,0.15), transparent 50%),
+    var(--crema);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:repeating-linear-gradient(90deg, transparent 0 80px, rgba(11,29,51,0.025) 80px 81px);
+  pointer-events:none;
+}
+.hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  font-size:0.7rem;
+  letter-spacing:0.25em;
+  font-weight:700;
+  color:var(--celeste-deep);
+  text-transform:uppercase;
+  margin-bottom:1.2rem;
+}
+.hero-eyebrow .pulse{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--celeste);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.4);opacity:0.6}
+}
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem, 8vw, 6rem);
+  line-height:0.95;
+  letter-spacing:0.01em;
+  margin-bottom:0.5rem;
+}
+.hero h1 .gold{color:var(--oro)}
+.hero .subtitle{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:1.15rem;
+  color:rgba(11,29,51,0.7);
+  margin-bottom:1.4rem;
+  font-weight:500;
+}
+.hero-quality{
+  display:inline-block;
+  background:var(--tinta);
+  color:white;
+  padding:0.45rem 1rem;
+  border-radius:100px;
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  margin-bottom:2rem;
+}
+.hero-quality .gold{color:var(--oro)}
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:0.6rem;
+  padding:1rem 2rem;
+  background:var(--tinta);
+  color:white;
+  border:none;
+  border-radius:100px;
+  font-family:'Archivo',sans-serif;
+  font-weight:600;
+  font-size:0.95rem;
+  letter-spacing:0.05em;
+  cursor:pointer;
+  transition:all 0.25s;
+  text-decoration:none;
+}
+.hero-cta:hover{
+  background:var(--celeste-deep);
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(11,29,51,0.2);
+}
+
+/* ===== STATS ===== */
+.hero-stats{
+  display:flex;
+  justify-content:center;
+  gap:2.5rem;
+  margin-top:3rem;
+  flex-wrap:wrap;
+}
+.stat-item{text-align:center}
+.stat-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.2rem;
+  color:var(--celeste-deep);
+  line-height:1;
+}
+.stat-label{
+  font-size:0.7rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:rgba(11,29,51,0.5);
+  margin-top:0.3rem;
+  font-weight:600;
+}
+
+/* ===== SECTIONS ===== */
+.products-container{
+  max-width:1400px;
+  margin:0 auto;
+  padding:40px 24px 80px;
+}
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin:50px 0 25px;
+  padding-bottom:18px;
+  border-bottom:2px solid var(--tinta);
+}
+.section-header:first-child{margin-top:20px}
+.section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing:0.02em;
+  line-height:1;
+}
+.section-tag{
+  font-family:'Fraunces',serif;
+  font-style:italic;
+  font-size:0.9rem;
+  color:rgba(11,29,51,0.5);
+}
+
+/* ===== PRODUCTS GRID ===== */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:20px;
+}
+
+.product{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--tinta-soft);
+  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.product:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px -12px rgba(11,29,51,0.18);
+  border-color:var(--celeste);
+}
+
+.product-img-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:1/1;
+  background:linear-gradient(135deg, var(--celeste-soft) 0%, #f8fafc 100%);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.product-img-wrap::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:repeating-linear-gradient(0deg, transparent 0 24px, rgba(116,172,223,0.05) 24px 25px);
+  pointer-events:none;
+}
+.product-img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:18px;
+  transition:opacity 0.3s ease;
+  position:relative;
+  z-index:1;
+}
+.product-img.fading{opacity:0}
+
+/* Galería de múltiples fotos */
+.gallery-dots{
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:6px;
+  z-index:3;
+}
+.gallery-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:rgba(11,29,51,0.25);
+  cursor:pointer;
+  transition:background 0.2s;
+  border:none;
+  padding:0;
+}
+.gallery-dot.active{background:var(--tinta)}
+.gallery-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.85);
+  border:none;
+  cursor:pointer;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  color:var(--tinta);
+  font-weight:bold;
+  opacity:0;
+  transition:opacity 0.2s;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.product:hover .gallery-arrow{opacity:1}
+.gallery-arrow.prev{left:8px}
+.gallery-arrow.next{right:8px}
+.gallery-arrow:hover{background:white}
+
+.product-badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:var(--rojo);
+  color:white;
+  padding:0.3rem 0.7rem;
+  border-radius:100px;
+  font-size:0.65rem;
+  font-weight:800;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  z-index:2;
+}
+.product-discount{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:var(--tinta);
+  color:white;
+  padding:0.3rem 0.7rem;
+  border-radius:100px;
+  font-size:0.7rem;
+  font-weight:700;
+  z-index:2;
+}
+
+.product-body{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  gap:10px;
+}
+.product-name{
+  font-size:0.95rem;
+  font-weight:600;
+  line-height:1.3;
+  min-height:38px;
+  color:var(--tinta);
+}
+.product-tela{
+  font-size:0.65rem;
+  color:var(--celeste-deep);
+  letter-spacing:0.12em;
+  font-weight:700;
+  text-transform:uppercase;
+  margin-top:-4px;
+  margin-bottom:2px;
+}
+
+.product-price-row{
+  display:flex;
+  align-items:baseline;
+  gap:0.6rem;
+  flex-wrap:wrap;
+}
+.product-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.7rem;
+  letter-spacing:0.02em;
+  color:var(--tinta);
+  line-height:1;
+}
+.product-old-price{
+  text-decoration:line-through;
+  color:rgba(11,29,51,0.4);
+  font-size:0.85rem;
+}
+
+.product-cuotas{
+  font-size:0.72rem;
+  color:rgba(11,29,51,0.6);
+  margin-top:-4px;
+}
+.product-cuotas strong{color:var(--celeste-deep);font-weight:700}
+
+.product-select{
+  width:100%;
+  padding:0.7rem 0.8rem;
+  border:1.5px solid var(--tinta-soft);
+  border-radius:8px;
+  font-family:'Archivo',sans-serif;
+  font-size:0.85rem;
+  font-weight:500;
+  background:white;
+  color:var(--tinta);
+  cursor:pointer;
+  transition:border-color 0.2s;
+  appearance:none;
+  -webkit-appearance:none;
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230b1d33' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat:no-repeat;
+  background-position:right 0.8rem center;
+  padding-right:2rem;
+}
+.product-select:focus{outline:none;border-color:var(--celeste-deep)}
+
+.product-btn{
+  margin-top:auto;
+  padding:0.85rem;
+  background:var(--tinta);
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-family:'Archivo',sans-serif;
+  font-weight:600;
+  font-size:0.85rem;
+  letter-spacing:0.05em;
+  cursor:pointer;
+  transition:all 0.2s;
+  text-transform:uppercase;
+}
+.product-btn:hover{background:var(--celeste-deep);transform:translateY(-1px)}
+.product-btn:active{transform:translateY(0)}
+
+/* ===== CART ===== */
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(11,29,51,0.5);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.3s;
+  z-index:99;
+}
+.cart-overlay.active{opacity:1;pointer-events:auto}
+
+.cart{
+  position:fixed;
+  right:0;
+  top:0;
+  width:min(440px, 100vw);
+  height:100vh;
+  background:var(--crema);
+  transform:translateX(100%);
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  z-index:100;
+  display:flex;
+  flex-direction:column;
+}
+.cart.active{transform:translateX(0)}
+
+.cart-header{
+  padding:1.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--tinta-soft);
+  background:white;
+}
+.cart-header h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;
+  letter-spacing:0.05em;
+}
+.cart-close{
+  background:none;
+  border:none;
+  font-size:1.4rem;
+  cursor:pointer;
+  color:var(--tinta);
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.2s;
+}
+.cart-close:hover{background:var(--tinta-soft)}
+
+.cart-body{
+  flex:1;
+  overflow-y:auto;
+  padding:1.2rem 1.5rem;
+}
+
+.cart-empty{
+  text-align:center;
+  padding:60px 20px;
+  color:rgba(11,29,51,0.5);
+}
+.cart-empty-icon{
+  font-size:3rem;
+  margin-bottom:1rem;
+  opacity:0.4;
+}
+.cart-empty-text{font-size:0.95rem}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:60px 1fr auto;
+  gap:1rem;
+  padding:1rem 0;
+  border-bottom:1px solid var(--tinta-soft);
+  align-items:center;
+}
+.cart-item:last-child{border-bottom:none}
+.cart-item-img{
+  width:60px;
+  height:60px;
+  border-radius:8px;
+  background:var(--celeste-soft);
+  object-fit:contain;
+  padding:5px;
+}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{
+  font-size:0.85rem;
+  font-weight:600;
+  margin-bottom:0.2rem;
+  line-height:1.3;
+}
+.cart-item-meta{
+  font-size:0.72rem;
+  color:rgba(11,29,51,0.6);
+  margin-bottom:0.5rem;
+}
+.cart-item-controls{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+}
+.qty-btn{
+  background:var(--tinta-soft);
+  border:none;
+  width:24px;
+  height:24px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:0.85rem;
+  color:var(--tinta);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.2s;
+}
+.qty-btn:hover{background:var(--celeste-deep);color:white}
+.qty-display{
+  min-width:24px;
+  text-align:center;
+  font-weight:600;
+  font-size:0.85rem;
+}
+.cart-item-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.1rem;
+  letter-spacing:0.02em;
+  text-align:right;
+  white-space:nowrap;
+}
+.cart-item-remove{
+  display:block;
+  background:none;
+  border:none;
+  color:rgba(11,29,51,0.5);
+  font-size:0.7rem;
+  cursor:pointer;
+  text-decoration:underline;
+  margin-top:0.3rem;
+  padding:0;
+}
+
+.cart-footer{
+  background:white;
+  padding:1.2rem 1.5rem;
+  border-top:1px solid var(--tinta-soft);
+}
+.checkout-form{
+  display:grid;
+  gap:0.6rem;
+  margin-bottom:1rem;
+}
+.form-input,
+.form-select{
+  width:100%;
+  padding:0.75rem;
+  border:1.5px solid var(--tinta-soft);
+  border-radius:8px;
+  font-family:'Archivo',sans-serif;
+  font-size:0.9rem;
+  background:var(--crema);
+  color:var(--tinta);
+  transition:border-color 0.2s;
+}
+.form-input:focus,
+.form-select:focus{
+  outline:none;
+  border-color:var(--celeste-deep);
+  background:white;
+}
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0.6rem;
+}
+.totals{margin-bottom:1rem}
+.total-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:0.4rem;
+  font-size:0.9rem;
+  color:rgba(11,29,51,0.7);
+}
+.total-row.grand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;
+  letter-spacing:0.03em;
+  color:var(--tinta);
+  border-top:1.5px solid var(--tinta);
+  padding-top:0.6rem;
+  margin-top:0.6rem;
+}
+.checkout-btn{
+  width:100%;
+  padding:1rem;
+  background:var(--verde);
+  color:white;
+  border:none;
+  border-radius:10px;
+  font-family:'Archivo',sans-serif;
+  font-weight:700;
+  font-size:0.9rem;
+  letter-spacing:0.05em;
+  cursor:pointer;
+  transition:all 0.2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.5rem;
+  text-transform:uppercase;
+}
+.checkout-btn:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(37,211,102,0.3)}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%) translateY(150%);
+  background:var(--tinta);
+  color:white;
+  padding:0.9rem 1.4rem;
+  border-radius:100px;
+  font-size:0.85rem;
+  font-weight:500;
+  box-shadow:0 12px 32px rgba(11,29,51,0.3);
+  z-index:300;
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  white-space:nowrap;
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast-icon{
+  background:var(--verde);
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.75rem;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  width:58px;
+  height:58px;
+  background:var(--verde);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:1.7rem;
+  text-decoration:none;
+  box-shadow:0 8px 24px rgba(37,211,102,0.4);
+  z-index:50;
+  transition:transform 0.2s;
+}
+.wa-float:hover{transform:scale(1.1)}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--negro);
+  color:rgba(255,255,255,0.7);
+  padding:3rem 24px 2rem;
+  text-align:center;
+}
+.foot-logo{
+  font-family:'Bebas Neue',sans-serif;
+  color:white;
+  font-size:1.5rem;
+  letter-spacing:0.15em;
+  margin-bottom:0.4rem;
+}
+.foot-stars{color:var(--oro);letter-spacing:0.3em;margin-bottom:1rem;font-size:0.85rem}
+footer p{font-size:0.8rem}
+.foot-pay{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  margin-top:1.5rem;
+  font-size:0.7rem;
+  letter-spacing:0.1em;
+  color:rgba(255,255,255,0.4);
+  text-transform:uppercase;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:640px){
+  .nav-inner{padding:14px 16px}
+  .hero{padding:50px 20px 40px}
+  .products-container{padding:30px 16px 60px}
+  .products{grid-template-columns:repeat(2, 1fr);gap:12px}
+  .product-body{padding:12px}
+  .product-name{font-size:0.82rem;min-height:34px}
+  .product-price{font-size:1.4rem}
+  .product-select{padding:0.6rem 0.7rem;font-size:0.78rem;padding-right:1.8rem}
+  .product-btn{padding:0.7rem;font-size:0.75rem}
+  .hero-stats{gap:1.5rem}
+  .stat-num{font-size:1.8rem}
+  .gallery-arrow{opacity:1;width:28px;height:28px;font-size:0.85rem}
+}
+@media (max-width:380px){
+  .products{grid-template-columns:1fr}
+}
+
+.loading{
+  text-align:center;
+  padding:80px 20px;
+  color:rgba(11,29,51,0.5);
+  font-family:'Fraunces',serif;
+  font-style:italic;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-track">
+    <span>🚚 Envío gratis +$100.000</span>
+    <span>💳 3 cuotas sin interés</span>
+    <span>⭐⭐⭐ Tres estrellas</span>
+    <span>📦 Andreani a todo el país</span>
+    <span>🎽 Tela jugador · Importadas</span>
+    <span>🚚 Envío gratis +$100.000</span>
+    <span>💳 3 cuotas sin interés</span>
+    <span>⭐⭐⭐ Tres estrellas</span>
+    <span>📦 Andreani a todo el país</span>
+    <span>🎽 Tela jugador · Importadas</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="stars">★★★</span>
+      LASELECSHOP
+    </div>
+    <button class="cart-trigger" onclick="toggleCart()">
+      Carrito
+      <span class="cart-count-badge" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="pulse"></span>Camino al Mundial 2026</div>
+    <h1>Defender la <span class="gold">Tercera</span></h1>
+    <p class="subtitle">— este Mundial no se mira, se juega —</p>
+    <div class="hero-quality">🎽 Tela Jugador · <span class="gold">Importadas alta calidad</span></div>
+    <br>
+    <button class="hero-cta" onclick="scrollToProducts()">
+      Comprar ahora →
+    </button>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">★★★</div>
+        <div class="stat-label">Tela Jugador</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Despacho</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3x</div>
+        <div class="stat-label">Cuotas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<div class="products-container" id="productsContainer">
+  <div id="productsContent" class="loading">Cargando productos...</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">LASELECSHOP</div>
+  <div class="foot-stars">★ ★ ★</div>
+  <p>© 2026 · Indumentaria mundialista importada · Tela jugador alta calidad</p>
+  <div class="foot-pay">
+    <span>MercadoPago</span>·<span>Andreani</span>·<span>Visa</span>·<span>Mastercard</span>
+  </div>
+</footer>
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<aside class="cart" id="cartDrawer">
+  <div class="cart-header">
+    <h2>Tu carrito</h2>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="checkout-form">
+      <input class="form-input" id="nombre" placeholder="Tu nombre completo" />
+      <div class="form-row">
+        <input class="form-input" id="telefono" placeholder="WhatsApp" type="tel" />
+        <input class="form-input" id="codigoPostal" placeholder="CP" type="text" maxlength="5" />
+      </div>
+      <select class="form-select" id="tipoEnvio" onchange="mostrarDireccion()">
+        <option value="sucursal">📦 Envío a sucursal Andreani</option>
+        <option value="domicilio">🏠 Envío a domicilio</option>
+      </select>
+      <input class="form-input" id="direccion" placeholder="Dirección completa" style="display:none;" />
+    </div>
+    <div class="totals">
+      <div class="total-row"><span>Subtotal</span><span id="subtotal">$0</span></div>
+      <div class="total-row grand"><span>Total</span><span id="total">$0</span></div>
+    </div>
+    <button class="checkout-btn" onclick="finalizarPedido()">
+      Finalizar por WhatsApp →
+    </button>
+  </div>
+</aside>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✓</span>
+  <span id="toastMsg"></span>
+</div>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/5491136276885" class="wa-float" target="_blank" aria-label="WhatsApp">💬</a>
+
+<script>
+const WA_NUMBER = "5491136276885";
+let cart = JSON.parse(localStorage.getItem("laselec_cart")) || [];
+let galleryIndices = {}; // Para trackear qué foto se está viendo en cada producto
+
+/* ════════════════════════════════════════════════════════════════════════════
+   ⬇⬇⬇ ZONA EDITABLE - REEMPLAZAR ESTE JSON CON EL NUEVO DEL APPS SCRIPT ⬇⬇⬇
+   
+   CÓMO ACTUALIZAR:
+   1. Andá al endpoint de Apps Script en el navegador (la URL del /exec)
+   2. Copiá TODO el JSON que ves (desde [ hasta ])
+   3. Reemplazá el contenido del array "productos" abajo
+   4. Guardá el archivo y subilo de nuevo a tu hosting
+   ════════════════════════════════════════════════════════════════════════════ */
+
+const productos = [{"id":1,"nombre":"Camiseta Titular","costo":25000,"markup":2.7,"precio":67490,"old_price":129000,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":2,"nombre":"Camiseta Manga Larga","costo":30000,"markup":2.8,"precio":83900,"old_price":154900,"talles":"M|L","imagenes":"https://drive.google.com/thumbnail?id=1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":3,"nombre":"Campera Rompeviento","costo":40000,"markup":2.5,"precio":99000,"old_price":194900,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":4,"nombre":"Remera Prematch","costo":20000,"markup":2.7,"precio":53900,"old_price":104900,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":5,"nombre":"Short AFA","costo":18000,"markup":2.7,"precio":48600,"old_price":97900,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1gIO6dbNj6az_4OM-XNBavoKoh6QEBZgq&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":6,"nombre":"Pelota AFA 2026","costo":50000,"markup":2.4,"precio":119000,"old_price":284900,"talles":"UNICO","imagenes":"https://drive.google.com/thumbnail?id=1Yvw8Z4WUoafMkvdUISe5bLcI0IksoJTP&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":7,"nombre":"Gorra Blanca","costo":15000,"markup":3,"precio":44900,"old_price":97900,"talles":"UNICO","imagenes":"https://drive.google.com/thumbnail?id=1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":8,"nombre":"Gorra Negra","costo":15000,"markup":3,"precio":44900,"old_price":97900,"talles":"UNICO","imagenes":"https://drive.google.com/thumbnail?id=1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":9,"nombre":"Gorra Celeste","costo":15000,"markup":3,"precio":44900,"old_price":97900,"talles":"UNICO","imagenes":"https://drive.google.com/thumbnail?id=1dOJpOiFO2c8_NZBaCzqM4IFKHOL9Q5Ex&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":10,"nombre":"Camiseta Titular Mundial 2026","costo":25000,"markup":2.7,"precio":67490,"old_price":129000,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":11,"nombre":"FAMILIAR Pack- 4 CAMISETAS","costo":100000,"markup":2.1,"precio":209000,"old_price":516000,"talles":"A confirmar","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":12,"nombre":"CRACK Pack - Camiseta Titular + Camiseta Manga Larga + Prematch","costo":75000,"markup":2.2,"precio":164900,"old_price":388800,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800|https://drive.google.com/thumbnail?id=1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w&sz=w800|https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":13,"nombre":"FAMILIAR FULL Pack - 4 Camisetas + 4 gorras","costo":180000,"markup":2,"precio":359000,"old_price":907600,"talles":"A confirmar","imagenes":"https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800|https://drive.google.com/thumbnail?id=1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":14,"nombre":"RUNNING Pack - Prematch + Short + Rompeviento","costo":78000,"markup":2.2,"precio":171600,"old_price":397700,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800|https://drive.google.com/thumbnail?id=1gIO6dbNj6az_4OM-XNBavoKoh6QEBZgq&sz=w800|https://drive.google.com/thumbnail?id=1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":15,"nombre":"HINCHA Pack - Camiseta Titular + Rompeviento + Gorra","costo":80000,"markup":2.2,"precio":175900,"old_price":421800,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800|https://drive.google.com/thumbnail?id=1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z&sz=w800|https://drive.google.com/thumbnail?id=1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":16,"nombre":"LA REDONDA Pack - Pelota AFA 2026 + Camiseta + Short","costo":93000,"markup":2.1,"precio":195300,"old_price":511800,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800|https://drive.google.com/thumbnail?id=1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w&sz=w800|https://drive.google.com/thumbnail?id=1Yvw8Z4WUoafMkvdUISe5bLcI0IksoJTP&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":17,"nombre":"TURRO Pack - Rompevientos + Gorra AFA + Manga Larga + Short AFA","costo":103000,"markup":2.1,"precio":216300,"old_price":545600,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w&sz=w800|https://drive.google.com/thumbnail?id=1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z&sz=w800|https://drive.google.com/thumbnail?id=1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU&sz=w800|https://drive.google.com/thumbnail?id=1gIO6dbNj6az_4OM-XNBavoKoh6QEBZgq&sz=w800","activo":"TRUE","destacado":"TRUE"}];
+
+/* ════════════════════════════════════════════════════════════════════════════
+   ⬆⬆⬆ FIN ZONA EDITABLE - NO TOQUES NADA ABAJO ⬆⬆⬆
+   ════════════════════════════════════════════════════════════════════════════ */
+
+// ===== INIT =====
+function init(){
+  renderProductos();
+  renderCart();
+}
+
+// ===== RENDER PRODUCTOS =====
+function renderProductos(){
+  const cont = document.getElementById("productsContent");
+  cont.classList.remove("loading");
+  cont.innerHTML = "";
+
+  const activos = productos.filter(p => String(p.activo).toUpperCase().trim() === "TRUE");
+  const destacados = activos.filter(p => String(p.destacado).toUpperCase().trim() === "TRUE");
+  const normales = activos.filter(p => String(p.destacado).toUpperCase().trim() !== "TRUE");
+
+  let html = "";
+
+  if(destacados.length > 0){
+    html += `
+      <div class="section-header">
+        <h2 class="section-title">🔥 Promociones Mundialistas</h2>
+        <span class="section-tag">${destacados.length} packs</span>
+      </div>
+      <div class="products">
+        ${destacados.map((p, i) => productoHTML(p, `dest-${i}`, true)).join("")}
+      </div>
+    `;
+  }
+
+  if(normales.length > 0){
+    html += `
+      <div class="section-header">
+        <h2 class="section-title">Indumentaria</h2>
+        <span class="section-tag">${normales.length} productos</span>
+      </div>
+      <div class="products">
+        ${normales.map((p, i) => productoHTML(p, `norm-${i}`, false)).join("")}
+      </div>
+    `;
+  }
+
+  cont.innerHTML = html;
+}
+
+function productoHTML(p, key, esDestacado){
+  const talles = String(p.talles).split("|").map(t => t.trim()).filter(t => t);
+  const descuento = Math.round((1 - p.precio / p.old_price) * 100);
+  const cuota = Math.round(p.precio / 3);
+  const precioStr = Number(p.precio).toLocaleString("es-AR");
+  const oldStr = Number(p.old_price).toLocaleString("es-AR");
+  const cuotaStr = cuota.toLocaleString("es-AR");
+
+  // Múltiples imágenes
+  const imgs = String(p.imagenes).split("|").map(u => u.trim()).filter(u => u);
+  galleryIndices[key] = 0;
+  const tieneGaleria = imgs.length > 1;
+
+  const dotsHTML = tieneGaleria ? `
+    <div class="gallery-dots">
+      ${imgs.map((_, idx) => `
+        <button class="gallery-dot ${idx === 0 ? 'active' : ''}" 
+                onclick="event.stopPropagation();cambiarImg('${key}', ${idx})"
+                aria-label="Foto ${idx + 1}"></button>
+      `).join("")}
+    </div>
+    <button class="gallery-arrow prev" onclick="event.stopPropagation();cambiarImg('${key}', galleryIndices['${key}'] - 1)">‹</button>
+    <button class="gallery-arrow next" onclick="event.stopPropagation();cambiarImg('${key}', galleryIndices['${key}'] + 1)">›</button>
+  ` : '';
+
+  return `
+    <div class="product">
+      <div class="product-img-wrap">
+        ${esDestacado ? '<div class="product-badge">Promo</div>' : ''}
+        ${descuento > 0 ? `<div class="product-discount">-${descuento}%</div>` : ''}
+        <img class="product-img" id="img-${key}" src="${imgs[0]}" alt="${p.nombre}"
+             data-imgs='${JSON.stringify(imgs)}'
+             referrerpolicy="no-referrer"
+             crossorigin="anonymous"
+             onerror="this.style.opacity='0.2';this.alt='Sin foto'" loading="lazy">
+        ${dotsHTML}
+      </div>
+      <div class="product-body">
+        <div class="product-tela">★ Tela Jugador</div>
+        <div class="product-name">${p.nombre}</div>
+        <div>
+          <div class="product-price-row">
+            <span class="product-price">$${precioStr}</span>
+            <span class="product-old-price">$${oldStr}</span>
+          </div>
+          <div class="product-cuotas">3 cuotas de <strong>$${cuotaStr}</strong></div>
+        </div>
+        <select class="product-select" id="talle-${key}">
+          <option value="">Elegir talle</option>
+          ${talles.map(t => `<option value="${t}">${t}</option>`).join("")}
+        </select>
+        <button class="product-btn" onclick="agregarAlCarrito('${key}', ${p.id})">
+          Agregar al carrito
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+// ===== GALERÍA =====
+function cambiarImg(key, idx){
+  const img = document.getElementById(`img-${key}`);
+  if(!img) return;
+  const imgs = JSON.parse(img.dataset.imgs);
+  // Loop circular
+  if(idx < 0) idx = imgs.length - 1;
+  if(idx >= imgs.length) idx = 0;
+  galleryIndices[key] = idx;
+
+  img.classList.add("fading");
+  setTimeout(() => {
+    img.src = imgs[idx];
+    img.classList.remove("fading");
+  }, 150);
+
+  // Update dots
+  const wrap = img.parentElement;
+  wrap.querySelectorAll(".gallery-dot").forEach((d, i) => {
+    d.classList.toggle("active", i === idx);
+  });
+}
+
+// ===== CARRITO =====
+function agregarAlCarrito(key, id){
+  const talle = document.getElementById(`talle-${key}`).value;
+  if(!talle){
+    showToast("Elegí un talle primero", false);
+    return;
+  }
+
+  const p = productos.find(x => x.id === id);
+  if(!p) return;
+
+  const primerImg = String(p.imagenes).split("|")[0].trim();
+  const existente = cart.find(i => i.id === p.id && i.talle === talle);
+  if(existente){
+    existente.qty++;
+  } else {
+    cart.push({
+      id: p.id,
+      nombre: p.nombre,
+      precio: p.precio,
+      img: primerImg,
+      talle: talle,
+      qty: 1
+    });
+  }
+
+  guardarCart();
+  renderCart();
+  showToast(`${p.nombre} agregado`);
+  document.getElementById(`talle-${key}`).value = "";
+  toggleCart(true);
+}
+
+function renderCart(){
+  const body = document.getElementById("cartBody");
+  const footer = document.getElementById("cartFooter");
+  const count = cart.reduce((a, i) => a + i.qty, 0);
+  document.getElementById("cartCount").textContent = count;
+
+  if(cart.length === 0){
+    body.innerHTML = `
+      <div class="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <div class="cart-empty-text">Tu carrito está vacío</div>
+      </div>
+    `;
+    footer.style.display = "none";
+    return;
+  }
+
+  let total = 0;
+  let html = "";
+  cart.forEach((item, i) => {
+    const sub = item.precio * item.qty;
+    total += sub;
+    html += `
+      <div class="cart-item">
+        <img class="cart-item-img" src="${item.img}" alt="${item.nombre}" referrerpolicy="no-referrer" onerror="this.style.opacity=0.3">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.nombre}</div>
+          <div class="cart-item-meta">Talle: ${item.talle}</div>
+          <div class="cart-item-controls">
+            <button class="qty-btn" onclick="cambiarQty(${i}, -1)">−</button>
+            <span class="qty-display">${item.qty}</span>
+            <button class="qty-btn" onclick="cambiarQty(${i}, 1)">+</button>
+          </div>
+        </div>
+        <div>
+          <div class="cart-item-price">$${sub.toLocaleString("es-AR")}</div>
+          <button class="cart-item-remove" onclick="quitarItem(${i})">Quitar</button>
+        </div>
+      </div>
+    `;
+  });
+  body.innerHTML = html;
+
+  document.getElementById("subtotal").textContent = "$" + total.toLocaleString("es-AR");
+  document.getElementById("total").textContent = "$" + total.toLocaleString("es-AR");
+  footer.style.display = "block";
+}
+
+function cambiarQty(i, delta){
+  cart[i].qty += delta;
+  if(cart[i].qty <= 0) cart.splice(i, 1);
+  guardarCart();
+  renderCart();
+}
+
+function quitarItem(i){
+  cart.splice(i, 1);
+  guardarCart();
+  renderCart();
+}
+
+function guardarCart(){
+  localStorage.setItem("laselec_cart", JSON.stringify(cart));
+}
+
+// ===== CHECKOUT =====
+function mostrarDireccion(){
+  const tipo = document.getElementById("tipoEnvio").value;
+  document.getElementById("direccion").style.display = tipo === "domicilio" ? "block" : "none";
+}
+
+function finalizarPedido(){
+  const nombre = document.getElementById("nombre").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const cp = document.getElementById("codigoPostal").value.trim();
+  const tipo = document.getElementById("tipoEnvio").value;
+  const direccion = document.getElementById("direccion").value.trim();
+
+  if(!nombre || !telefono || !cp){
+    showToast("Completá nombre, WhatsApp y CP", false);
+    return;
+  }
+  if(tipo === "domicilio" && !direccion){
+    showToast("Completá la dirección", false);
+    return;
+  }
+
+  let msg = `*PEDIDO LASELECSHOP* ⭐⭐⭐%0A%0A`;
+  cart.forEach(item => {
+    msg += `• ${item.nombre} (${item.talle})%0A`;
+    msg += `   x${item.qty} · $${(item.precio * item.qty).toLocaleString("es-AR")}%0A`;
+  });
+  const total = cart.reduce((a, i) => a + (i.precio * i.qty), 0);
+  msg += `%0A*TOTAL: $${total.toLocaleString("es-AR")}*%0A%0A`;
+  msg += `━━━━━━━━━━━━%0A`;
+  msg += `👤 *Cliente:* ${nombre}%0A`;
+  msg += `📱 *WhatsApp:* ${telefono}%0A`;
+  msg += `📍 *CP:* ${cp}%0A`;
+  msg += `📦 *Envío:* ${tipo === "sucursal" ? "Sucursal Andreani" : "Domicilio"}`;
+  if(tipo === "domicilio") msg += `%0A🏠 *Dirección:* ${direccion}`;
+
+  window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
+}
+
+// ===== UI =====
+function toggleCart(forceOpen){
+  const drawer = document.getElementById("cartDrawer");
+  const overlay = document.getElementById("cartOverlay");
+  const open = forceOpen !== undefined ? forceOpen : !drawer.classList.contains("active");
+  drawer.classList.toggle("active", open);
+  overlay.classList.toggle("active", open);
+  document.body.style.overflow = open ? "hidden" : "";
+}
+
+function scrollToProducts(){
+  document.getElementById("productsContainer").scrollIntoView({behavior:"smooth"});
+}
+
+function showToast(msg, success = true){
+  const toast = document.getElementById("toast");
+  document.getElementById("toastMsg").textContent = msg;
+  toast.querySelector(".toast-icon").style.background = success ? "var(--verde)" : "var(--rojo)";
+  toast.querySelector(".toast-icon").textContent = success ? "✓" : "!";
+  toast.classList.add("show");
+  clearTimeout(window._toastT);
+  window._toastT = setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
+init();
+</script>
+
+</body>
+</html>
