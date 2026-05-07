@@ -34,752 +34,134 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* ===== TOPBAR ===== */
-.topbar{
-  background:var(--tinta);
-  color:white;
-  padding:10px 20px;
-  overflow:hidden;
-  position:relative;
-}
-.topbar-track{
-  display:flex;
-  gap:3rem;
-  white-space:nowrap;
-  animation:scroll 30s linear infinite;
-  font-size:0.8rem;
-  letter-spacing:0.1em;
-  font-weight:500;
-}
+.topbar{background:var(--tinta);color:white;padding:10px 20px;overflow:hidden;position:relative}
+.topbar-track{display:flex;gap:3rem;white-space:nowrap;animation:scroll 30s linear infinite;font-size:0.8rem;letter-spacing:0.1em;font-weight:500}
 .topbar-track span{display:inline-flex;align-items:center;gap:0.5rem}
-@keyframes scroll{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ===== NAV ===== */
-nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(246,243,236,0.92);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--tinta-soft);
-}
-.nav-inner{
-  max-width:1400px;
-  margin:0 auto;
-  padding:18px 24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.7rem;
-  letter-spacing:0.08em;
-  display:flex;
-  align-items:center;
-  gap:0.4rem;
-}
+nav{position:sticky;top:0;z-index:50;background:rgba(246,243,236,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--tinta-soft)}
+.nav-inner{max-width:1400px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:0.08em;display:flex;align-items:center;gap:0.4rem}
 .logo .stars{color:var(--oro);font-size:0.75rem;letter-spacing:0.2em}
-.cart-trigger{
-  display:flex;
-  align-items:center;
-  gap:0.6rem;
-  background:var(--tinta);
-  color:white;
-  border:none;
-  padding:0.65rem 1.1rem;
-  border-radius:100px;
-  cursor:pointer;
-  font-family:'Archivo',sans-serif;
-  font-weight:600;
-  font-size:0.85rem;
-  transition:all 0.2s;
-}
+.cart-trigger{display:flex;align-items:center;gap:0.6rem;background:var(--tinta);color:white;border:none;padding:0.65rem 1.1rem;border-radius:100px;cursor:pointer;font-family:'Archivo',sans-serif;font-weight:600;font-size:0.85rem;transition:all 0.2s}
 .cart-trigger:hover{background:var(--celeste-deep);transform:translateY(-1px)}
-.cart-count-badge{
-  background:var(--oro);
-  color:var(--negro);
-  border-radius:50%;
-  width:22px;
-  height:22px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:0.7rem;
-  font-weight:800;
-}
+.cart-count-badge{background:var(--oro);color:var(--negro);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800}
 
-/* ===== HERO ===== */
-.hero{
-  position:relative;
-  padding:80px 24px 60px;
-  text-align:center;
-  background:
-    radial-gradient(ellipse at top right, rgba(116,172,223,0.3), transparent 60%),
-    radial-gradient(ellipse at bottom left, rgba(116,172,223,0.15), transparent 50%),
-    var(--crema);
-  overflow:hidden;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:repeating-linear-gradient(90deg, transparent 0 80px, rgba(11,29,51,0.025) 80px 81px);
-  pointer-events:none;
-}
+.hero{position:relative;padding:80px 24px 60px;text-align:center;background:radial-gradient(ellipse at top right,rgba(116,172,223,0.3),transparent 60%),radial-gradient(ellipse at bottom left,rgba(116,172,223,0.15),transparent 50%),var(--crema);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent 0 80px,rgba(11,29,51,0.025) 80px 81px);pointer-events:none}
 .hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto}
-.hero-eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:0.5rem;
-  font-size:0.7rem;
-  letter-spacing:0.25em;
-  font-weight:700;
-  color:var(--celeste-deep);
-  text-transform:uppercase;
-  margin-bottom:1.2rem;
-}
-.hero-eyebrow .pulse{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--celeste);
-  animation:pulse 2s infinite;
-}
-@keyframes pulse{
-  0%,100%{transform:scale(1);opacity:1}
-  50%{transform:scale(1.4);opacity:0.6}
-}
-.hero h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3rem, 8vw, 6rem);
-  line-height:0.95;
-  letter-spacing:0.01em;
-  margin-bottom:0.5rem;
-}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;letter-spacing:0.25em;font-weight:700;color:var(--celeste-deep);text-transform:uppercase;margin-bottom:1.2rem}
+.hero-eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--celeste);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.6}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6rem);line-height:0.95;letter-spacing:0.01em;margin-bottom:0.5rem}
 .hero h1 .gold{color:var(--oro)}
-.hero .subtitle{
-  font-family:'Fraunces',serif;
-  font-style:italic;
-  font-size:1.15rem;
-  color:rgba(11,29,51,0.7);
-  margin-bottom:1.4rem;
-  font-weight:500;
-}
-.hero-quality{
-  display:inline-block;
-  background:var(--tinta);
-  color:white;
-  padding:0.45rem 1rem;
-  border-radius:100px;
-  font-size:0.72rem;
-  font-weight:700;
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-  margin-bottom:2rem;
-}
+.hero .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:rgba(11,29,51,0.7);margin-bottom:1.4rem;font-weight:500}
+.hero-quality{display:inline-block;background:var(--tinta);color:white;padding:0.45rem 1rem;border-radius:100px;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:2rem}
 .hero-quality .gold{color:var(--oro)}
-.hero-cta{
-  display:inline-flex;
-  align-items:center;
-  gap:0.6rem;
-  padding:1rem 2rem;
-  background:var(--tinta);
-  color:white;
-  border:none;
-  border-radius:100px;
-  font-family:'Archivo',sans-serif;
-  font-weight:600;
-  font-size:0.95rem;
-  letter-spacing:0.05em;
-  cursor:pointer;
-  transition:all 0.25s;
-  text-decoration:none;
-}
-.hero-cta:hover{
-  background:var(--celeste-deep);
-  transform:translateY(-2px);
-  box-shadow:0 12px 24px rgba(11,29,51,0.2);
-}
+.hero-cta{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2rem;background:var(--tinta);color:white;border:none;border-radius:100px;font-family:'Archivo',sans-serif;font-weight:600;font-size:0.95rem;letter-spacing:0.05em;cursor:pointer;transition:all 0.25s;text-decoration:none}
+.hero-cta:hover{background:var(--celeste-deep);transform:translateY(-2px);box-shadow:0 12px 24px rgba(11,29,51,0.2)}
 
-/* ===== STATS ===== */
-.hero-stats{
-  display:flex;
-  justify-content:center;
-  gap:2.5rem;
-  margin-top:3rem;
-  flex-wrap:wrap;
-}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem;flex-wrap:wrap}
 .stat-item{text-align:center}
-.stat-num{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:2.2rem;
-  color:var(--celeste-deep);
-  line-height:1;
-}
-.stat-label{
-  font-size:0.7rem;
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-  color:rgba(11,29,51,0.5);
-  margin-top:0.3rem;
-  font-weight:600;
-}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--celeste-deep);line-height:1}
+.stat-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(11,29,51,0.5);margin-top:0.3rem;font-weight:600}
 
-/* ===== SECTIONS ===== */
-.products-container{
-  max-width:1400px;
-  margin:0 auto;
-  padding:40px 24px 80px;
-}
-.section-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  margin:50px 0 25px;
-  padding-bottom:18px;
-  border-bottom:2px solid var(--tinta);
-}
+.products-container{max-width:1400px;margin:0 auto;padding:40px 24px 80px}
+.section-header{display:flex;justify-content:space-between;align-items:flex-end;margin:50px 0 25px;padding-bottom:18px;border-bottom:2px solid var(--tinta)}
 .section-header:first-child{margin-top:20px}
-.section-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(1.8rem, 4vw, 2.8rem);
-  letter-spacing:0.02em;
-  line-height:1;
-}
-.section-tag{
-  font-family:'Fraunces',serif;
-  font-style:italic;
-  font-size:0.9rem;
-  color:rgba(11,29,51,0.5);
-}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:0.02em;line-height:1}
+.section-tag{font-family:'Fraunces',serif;font-style:italic;font-size:0.9rem;color:rgba(11,29,51,0.5)}
 
-/* ===== PRODUCTS GRID ===== */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
-  gap:20px;
-}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.product{background:white;border-radius:12px;overflow:hidden;border:1px solid var(--tinta-soft);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;position:relative}
+.product:hover{transform:translateY(-6px);box-shadow:0 20px 40px -12px rgba(11,29,51,0.18);border-color:var(--celeste)}
 
-.product{
-  background:white;
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid var(--tinta-soft);
-  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
-  display:flex;
-  flex-direction:column;
-  position:relative;
-}
-.product:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 40px -12px rgba(11,29,51,0.18);
-  border-color:var(--celeste);
-}
-
-.product-img-wrap{
-  position:relative;
-  width:100%;
-  aspect-ratio:1/1;
-  background:linear-gradient(135deg, var(--celeste-soft) 0%, #f8fafc 100%);
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.product-img-wrap::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:repeating-linear-gradient(0deg, transparent 0 24px, rgba(116,172,223,0.05) 24px 25px);
-  pointer-events:none;
-}
-.product-img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  padding:18px;
-  transition:opacity 0.3s ease;
-  position:relative;
-  z-index:1;
-}
+.product-img-wrap{position:relative;width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,var(--celeste-soft) 0%,#f8fafc 100%);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.product-img-wrap::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent 0 24px,rgba(116,172,223,0.05) 24px 25px);pointer-events:none}
+.product-img{width:100%;height:100%;object-fit:contain;padding:18px;transition:opacity 0.3s ease;position:relative;z-index:1}
 .product-img.fading{opacity:0}
 
-/* Galería de múltiples fotos */
-.gallery-dots{
-  position:absolute;
-  bottom:10px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:6px;
-  z-index:3;
-}
-.gallery-dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:rgba(11,29,51,0.25);
-  cursor:pointer;
-  transition:background 0.2s;
-  border:none;
-  padding:0;
-}
+.gallery-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}
+.gallery-dot{width:7px;height:7px;border-radius:50%;background:rgba(11,29,51,0.25);cursor:pointer;transition:background 0.2s;border:none;padding:0}
 .gallery-dot.active{background:var(--tinta)}
-.gallery-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.85);
-  border:none;
-  cursor:pointer;
-  z-index:3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1rem;
-  color:var(--tinta);
-  font-weight:bold;
-  opacity:0;
-  transition:opacity 0.2s;
-  box-shadow:0 2px 8px rgba(0,0,0,0.1);
-}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.85);border:none;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--tinta);font-weight:bold;opacity:0;transition:opacity 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
 .product:hover .gallery-arrow{opacity:1}
 .gallery-arrow.prev{left:8px}
 .gallery-arrow.next{right:8px}
 .gallery-arrow:hover{background:white}
 
-.product-badge{
-  position:absolute;
-  top:12px;
-  left:12px;
-  background:var(--rojo);
-  color:white;
-  padding:0.3rem 0.7rem;
-  border-radius:100px;
-  font-size:0.65rem;
-  font-weight:800;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  z-index:2;
-}
-.product-discount{
-  position:absolute;
-  top:12px;
-  right:12px;
-  background:var(--tinta);
-  color:white;
-  padding:0.3rem 0.7rem;
-  border-radius:100px;
-  font-size:0.7rem;
-  font-weight:700;
-  z-index:2;
-}
+.product-badge{position:absolute;top:12px;left:12px;background:var(--rojo);color:white;padding:0.3rem 0.7rem;border-radius:100px;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;z-index:2}
+.product-discount{position:absolute;top:12px;right:12px;background:var(--tinta);color:white;padding:0.3rem 0.7rem;border-radius:100px;font-size:0.7rem;font-weight:700;z-index:2}
 
-.product-body{
-  padding:16px;
-  display:flex;
-  flex-direction:column;
-  flex:1;
-  gap:10px;
-}
-.product-name{
-  font-size:0.95rem;
-  font-weight:600;
-  line-height:1.3;
-  min-height:38px;
-  color:var(--tinta);
-}
-.product-tela{
-  font-size:0.65rem;
-  color:var(--celeste-deep);
-  letter-spacing:0.12em;
-  font-weight:700;
-  text-transform:uppercase;
-  margin-top:-4px;
-  margin-bottom:2px;
-}
-
-.product-price-row{
-  display:flex;
-  align-items:baseline;
-  gap:0.6rem;
-  flex-wrap:wrap;
-}
-.product-price{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.7rem;
-  letter-spacing:0.02em;
-  color:var(--tinta);
-  line-height:1;
-}
-.product-old-price{
-  text-decoration:line-through;
-  color:rgba(11,29,51,0.4);
-  font-size:0.85rem;
-}
-
-.product-cuotas{
-  font-size:0.72rem;
-  color:rgba(11,29,51,0.6);
-  margin-top:-4px;
-}
+.product-body{padding:16px;display:flex;flex-direction:column;flex:1;gap:10px}
+.product-name{font-size:0.95rem;font-weight:600;line-height:1.3;min-height:38px;color:var(--tinta)}
+.product-tela{font-size:0.65rem;color:var(--celeste-deep);letter-spacing:0.12em;font-weight:700;text-transform:uppercase;margin-top:-4px;margin-bottom:2px}
+.product-price-row{display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap}
+.product-price{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:0.02em;color:var(--tinta);line-height:1}
+.product-old-price{text-decoration:line-through;color:rgba(11,29,51,0.4);font-size:0.85rem}
+.product-cuotas{font-size:0.72rem;color:rgba(11,29,51,0.6);margin-top:-4px}
 .product-cuotas strong{color:var(--celeste-deep);font-weight:700}
 
-.product-select{
-  width:100%;
-  padding:0.7rem 0.8rem;
-  border:1.5px solid var(--tinta-soft);
-  border-radius:8px;
-  font-family:'Archivo',sans-serif;
-  font-size:0.85rem;
-  font-weight:500;
-  background:white;
-  color:var(--tinta);
-  cursor:pointer;
-  transition:border-color 0.2s;
-  appearance:none;
-  -webkit-appearance:none;
-  background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230b1d33' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat:no-repeat;
-  background-position:right 0.8rem center;
-  padding-right:2rem;
-}
+.product-select{width:100%;padding:0.7rem 0.8rem;border:1.5px solid var(--tinta-soft);border-radius:8px;font-family:'Archivo',sans-serif;font-size:0.85rem;font-weight:500;background:white;color:var(--tinta);cursor:pointer;transition:border-color 0.2s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230b1d33' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 0.8rem center;padding-right:2rem}
 .product-select:focus{outline:none;border-color:var(--celeste-deep)}
 
-.product-btn{
-  margin-top:auto;
-  padding:0.85rem;
-  background:var(--tinta);
-  color:white;
-  border:none;
-  border-radius:8px;
-  font-family:'Archivo',sans-serif;
-  font-weight:600;
-  font-size:0.85rem;
-  letter-spacing:0.05em;
-  cursor:pointer;
-  transition:all 0.2s;
-  text-transform:uppercase;
-}
+.product-btn{margin-top:auto;padding:0.85rem;background:var(--tinta);color:white;border:none;border-radius:8px;font-family:'Archivo',sans-serif;font-weight:600;font-size:0.85rem;letter-spacing:0.05em;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
 .product-btn:hover{background:var(--celeste-deep);transform:translateY(-1px)}
-.product-btn:active{transform:translateY(0)}
 
-/* ===== CART ===== */
-.cart-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(11,29,51,0.5);
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px);
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 0.3s;
-  z-index:99;
-}
+.cart-overlay{position:fixed;inset:0;background:rgba(11,29,51,0.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:99}
 .cart-overlay.active{opacity:1;pointer-events:auto}
-
-.cart{
-  position:fixed;
-  right:0;
-  top:0;
-  width:min(440px, 100vw);
-  height:100vh;
-  background:var(--crema);
-  transform:translateX(100%);
-  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
-  z-index:100;
-  display:flex;
-  flex-direction:column;
-}
+.cart{position:fixed;right:0;top:0;width:min(440px,100vw);height:100vh;background:var(--crema);transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);z-index:100;display:flex;flex-direction:column}
 .cart.active{transform:translateX(0)}
-
-.cart-header{
-  padding:1.5rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid var(--tinta-soft);
-  background:white;
-}
-.cart-header h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.6rem;
-  letter-spacing:0.05em;
-}
-.cart-close{
-  background:none;
-  border:none;
-  font-size:1.4rem;
-  cursor:pointer;
-  color:var(--tinta);
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:background 0.2s;
-}
+.cart-header{padding:1.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--tinta-soft);background:white}
+.cart-header h2{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em}
+.cart-close{background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--tinta);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
 .cart-close:hover{background:var(--tinta-soft)}
-
-.cart-body{
-  flex:1;
-  overflow-y:auto;
-  padding:1.2rem 1.5rem;
-}
-
-.cart-empty{
-  text-align:center;
-  padding:60px 20px;
-  color:rgba(11,29,51,0.5);
-}
-.cart-empty-icon{
-  font-size:3rem;
-  margin-bottom:1rem;
-  opacity:0.4;
-}
+.cart-body{flex:1;overflow-y:auto;padding:1.2rem 1.5rem}
+.cart-empty{text-align:center;padding:60px 20px;color:rgba(11,29,51,0.5)}
+.cart-empty-icon{font-size:3rem;margin-bottom:1rem;opacity:0.4}
 .cart-empty-text{font-size:0.95rem}
-
-.cart-item{
-  display:grid;
-  grid-template-columns:60px 1fr auto;
-  gap:1rem;
-  padding:1rem 0;
-  border-bottom:1px solid var(--tinta-soft);
-  align-items:center;
-}
+.cart-item{display:grid;grid-template-columns:60px 1fr auto;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--tinta-soft);align-items:center}
 .cart-item:last-child{border-bottom:none}
-.cart-item-img{
-  width:60px;
-  height:60px;
-  border-radius:8px;
-  background:var(--celeste-soft);
-  object-fit:contain;
-  padding:5px;
-}
+.cart-item-img{width:60px;height:60px;border-radius:8px;background:var(--celeste-soft);object-fit:contain;padding:5px}
 .cart-item-info{flex:1;min-width:0}
-.cart-item-name{
-  font-size:0.85rem;
-  font-weight:600;
-  margin-bottom:0.2rem;
-  line-height:1.3;
-}
-.cart-item-meta{
-  font-size:0.72rem;
-  color:rgba(11,29,51,0.6);
-  margin-bottom:0.5rem;
-}
-.cart-item-controls{
-  display:flex;
-  align-items:center;
-  gap:0.5rem;
-}
-.qty-btn{
-  background:var(--tinta-soft);
-  border:none;
-  width:24px;
-  height:24px;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:700;
-  font-size:0.85rem;
-  color:var(--tinta);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:background 0.2s;
-}
+.cart-item-name{font-size:0.85rem;font-weight:600;margin-bottom:0.2rem;line-height:1.3}
+.cart-item-meta{font-size:0.72rem;color:rgba(11,29,51,0.6);margin-bottom:0.5rem}
+.cart-item-controls{display:flex;align-items:center;gap:0.5rem}
+.qty-btn{background:var(--tinta-soft);border:none;width:24px;height:24px;border-radius:6px;cursor:pointer;font-weight:700;font-size:0.85rem;color:var(--tinta);display:flex;align-items:center;justify-content:center;transition:background 0.2s}
 .qty-btn:hover{background:var(--celeste-deep);color:white}
-.qty-display{
-  min-width:24px;
-  text-align:center;
-  font-weight:600;
-  font-size:0.85rem;
-}
-.cart-item-price{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.1rem;
-  letter-spacing:0.02em;
-  text-align:right;
-  white-space:nowrap;
-}
-.cart-item-remove{
-  display:block;
-  background:none;
-  border:none;
-  color:rgba(11,29,51,0.5);
-  font-size:0.7rem;
-  cursor:pointer;
-  text-decoration:underline;
-  margin-top:0.3rem;
-  padding:0;
-}
+.qty-display{min-width:24px;text-align:center;font-weight:600;font-size:0.85rem}
+.cart-item-price{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.02em;text-align:right;white-space:nowrap}
+.cart-item-remove{display:block;background:none;border:none;color:rgba(11,29,51,0.5);font-size:0.7rem;cursor:pointer;text-decoration:underline;margin-top:0.3rem;padding:0}
 
-.cart-footer{
-  background:white;
-  padding:1.2rem 1.5rem;
-  border-top:1px solid var(--tinta-soft);
-}
-.checkout-form{
-  display:grid;
-  gap:0.6rem;
-  margin-bottom:1rem;
-}
-.form-input,
-.form-select{
-  width:100%;
-  padding:0.75rem;
-  border:1.5px solid var(--tinta-soft);
-  border-radius:8px;
-  font-family:'Archivo',sans-serif;
-  font-size:0.9rem;
-  background:var(--crema);
-  color:var(--tinta);
-  transition:border-color 0.2s;
-}
-.form-input:focus,
-.form-select:focus{
-  outline:none;
-  border-color:var(--celeste-deep);
-  background:white;
-}
-.form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0.6rem;
-}
+.cart-footer{background:white;padding:1.2rem 1.5rem;border-top:1px solid var(--tinta-soft)}
+.checkout-form{display:grid;gap:0.6rem;margin-bottom:1rem}
+.form-input,.form-select{width:100%;padding:0.75rem;border:1.5px solid var(--tinta-soft);border-radius:8px;font-family:'Archivo',sans-serif;font-size:0.9rem;background:var(--crema);color:var(--tinta);transition:border-color 0.2s}
+.form-input:focus,.form-select:focus{outline:none;border-color:var(--celeste-deep);background:white}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem}
 .totals{margin-bottom:1rem}
-.total-row{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:0.4rem;
-  font-size:0.9rem;
-  color:rgba(11,29,51,0.7);
-}
-.total-row.grand{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.6rem;
-  letter-spacing:0.03em;
-  color:var(--tinta);
-  border-top:1.5px solid var(--tinta);
-  padding-top:0.6rem;
-  margin-top:0.6rem;
-}
-.checkout-btn{
-  width:100%;
-  padding:1rem;
-  background:var(--verde);
-  color:white;
-  border:none;
-  border-radius:10px;
-  font-family:'Archivo',sans-serif;
-  font-weight:700;
-  font-size:0.9rem;
-  letter-spacing:0.05em;
-  cursor:pointer;
-  transition:all 0.2s;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:0.5rem;
-  text-transform:uppercase;
-}
+.total-row{display:flex;justify-content:space-between;margin-bottom:0.4rem;font-size:0.9rem;color:rgba(11,29,51,0.7)}
+.total-row.grand{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.03em;color:var(--tinta);border-top:1.5px solid var(--tinta);padding-top:0.6rem;margin-top:0.6rem}
+.checkout-btn{width:100%;padding:1rem;background:var(--verde);color:white;border:none;border-radius:10px;font-family:'Archivo',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.05em;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:0.5rem;text-transform:uppercase}
 .checkout-btn:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(37,211,102,0.3)}
 
-/* ===== TOAST ===== */
-.toast{
-  position:fixed;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%) translateY(150%);
-  background:var(--tinta);
-  color:white;
-  padding:0.9rem 1.4rem;
-  border-radius:100px;
-  font-size:0.85rem;
-  font-weight:500;
-  box-shadow:0 12px 32px rgba(11,29,51,0.3);
-  z-index:300;
-  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
-  display:flex;
-  align-items:center;
-  gap:0.5rem;
-  white-space:nowrap;
-}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(150%);background:var(--tinta);color:white;padding:0.9rem 1.4rem;border-radius:100px;font-size:0.85rem;font-weight:500;box-shadow:0 12px 32px rgba(11,29,51,0.3);z-index:300;transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);display:flex;align-items:center;gap:0.5rem;white-space:nowrap}
 .toast.show{transform:translateX(-50%) translateY(0)}
-.toast-icon{
-  background:var(--verde);
-  width:20px;
-  height:20px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:0.75rem;
-}
+.toast-icon{background:var(--verde);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem}
 
-/* ===== WHATSAPP FLOAT ===== */
-.wa-float{
-  position:fixed;
-  bottom:24px;
-  right:24px;
-  width:58px;
-  height:58px;
-  background:var(--verde);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:1.7rem;
-  text-decoration:none;
-  box-shadow:0 8px 24px rgba(37,211,102,0.4);
-  z-index:50;
-  transition:transform 0.2s;
-}
+.wa-float{position:fixed;bottom:24px;right:24px;width:58px;height:58px;background:var(--verde);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:1.7rem;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,0.4);z-index:50;transition:transform 0.2s}
 .wa-float:hover{transform:scale(1.1)}
 
-/* ===== FOOTER ===== */
-footer{
-  background:var(--negro);
-  color:rgba(255,255,255,0.7);
-  padding:3rem 24px 2rem;
-  text-align:center;
-}
-.foot-logo{
-  font-family:'Bebas Neue',sans-serif;
-  color:white;
-  font-size:1.5rem;
-  letter-spacing:0.15em;
-  margin-bottom:0.4rem;
-}
+footer{background:var(--negro);color:rgba(255,255,255,0.7);padding:3rem 24px 2rem;text-align:center}
+.foot-logo{font-family:'Bebas Neue',sans-serif;color:white;font-size:1.5rem;letter-spacing:0.15em;margin-bottom:0.4rem}
 .foot-stars{color:var(--oro);letter-spacing:0.3em;margin-bottom:1rem;font-size:0.85rem}
 footer p{font-size:0.8rem}
-.foot-pay{
-  display:flex;
-  justify-content:center;
-  gap:1rem;
-  margin-top:1.5rem;
-  font-size:0.7rem;
-  letter-spacing:0.1em;
-  color:rgba(255,255,255,0.4);
-  text-transform:uppercase;
-}
+.foot-pay{display:flex;justify-content:center;gap:1rem;margin-top:1.5rem;font-size:0.7rem;letter-spacing:0.1em;color:rgba(255,255,255,0.4);text-transform:uppercase}
 
-/* ===== RESPONSIVE ===== */
 @media (max-width:640px){
   .nav-inner{padding:14px 16px}
   .hero{padding:50px 20px 40px}
   .products-container{padding:30px 16px 60px}
-  .products{grid-template-columns:repeat(2, 1fr);gap:12px}
+  .products{grid-template-columns:repeat(2,1fr);gap:12px}
   .product-body{padding:12px}
   .product-name{font-size:0.82rem;min-height:34px}
   .product-price{font-size:1.4rem}
@@ -789,23 +171,12 @@ footer p{font-size:0.8rem}
   .stat-num{font-size:1.8rem}
   .gallery-arrow{opacity:1;width:28px;height:28px;font-size:0.85rem}
 }
-@media (max-width:380px){
-  .products{grid-template-columns:1fr}
-}
-
-.loading{
-  text-align:center;
-  padding:80px 20px;
-  color:rgba(11,29,51,0.5);
-  font-family:'Fraunces',serif;
-  font-style:italic;
-}
+@media (max-width:380px){.products{grid-template-columns:1fr}}
 </style>
 </head>
 
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-track">
     <span>🚚 Envío gratis +$100.000</span>
@@ -821,7 +192,6 @@ footer p{font-size:0.8rem}
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <div class="logo">
@@ -835,7 +205,6 @@ footer p{font-size:0.8rem}
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-eyebrow"><span class="pulse"></span>Camino al Mundial 2026</div>
@@ -864,12 +233,10 @@ footer p{font-size:0.8rem}
   </div>
 </section>
 
-<!-- PRODUCTOS -->
 <div class="products-container" id="productsContainer">
-  <div id="productsContent" class="loading">Cargando productos...</div>
+  <div id="productsContent"></div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="foot-logo">LASELECSHOP</div>
   <div class="foot-stars">★ ★ ★</div>
@@ -879,7 +246,6 @@ footer p{font-size:0.8rem}
   </div>
 </footer>
 
-<!-- CART -->
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 <aside class="cart" id="cartDrawer">
   <div class="cart-header">
@@ -910,67 +276,168 @@ footer p{font-size:0.8rem}
   </div>
 </aside>
 
-<!-- TOAST -->
 <div class="toast" id="toast">
   <span class="toast-icon">✓</span>
   <span id="toastMsg"></span>
 </div>
 
-<!-- WA FLOAT -->
 <a href="https://wa.me/5491136276885" class="wa-float" target="_blank" aria-label="WhatsApp">💬</a>
 
 <script>
 const WA_NUMBER = "5491136276885";
 let cart = JSON.parse(localStorage.getItem("laselec_cart")) || [];
-let galleryIndices = {}; // Para trackear qué foto se está viendo en cada producto
+let galleryIndices = {};
 
 /* ════════════════════════════════════════════════════════════════════════════
-   ⬇⬇⬇ ZONA EDITABLE - REEMPLAZAR ESTE JSON CON EL NUEVO DEL APPS SCRIPT ⬇⬇⬇
-   
-   CÓMO ACTUALIZAR:
-   1. Andá al endpoint de Apps Script en el navegador (la URL del /exec)
-   2. Copiá TODO el JSON que ves (desde [ hasta ])
-   3. Reemplazá el contenido del array "productos" abajo
-   4. Guardá el archivo y subilo de nuevo a tu hosting
+   ⬇⬇⬇ ZONA EDITABLE - PRODUCTOS HARDCODEADOS ⬇⬇⬇
    ════════════════════════════════════════════════════════════════════════════ */
 
-const productos = [{"id":1,"nombre":"Camiseta Titular","costo":25000,"markup":2.7,"precio":67490,"old_price":129000,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":2,"nombre":"Camiseta Manga Larga","costo":30000,"markup":2.8,"precio":83900,"old_price":154900,"talles":"M|L","imagenes":"https://drive.google.com/thumbnail?id=1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":3,"nombre":"Campera Rompeviento","costo":40000,"markup":2.5,"precio":99000,"old_price":194900,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":4,"nombre":"Remera Prematch","costo":20000,"markup":2.7,"precio":53900,"old_price":104900,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":5,"nombre":"Short AFA","costo":18000,"markup":2.7,"precio":48600,"old_price":97900,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1gIO6dbNj6az_4OM-XNBavoKoh6QEBZgq&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":6,"nombre":"Pelota AFA 2026","costo":50000,"markup":2.4,"precio":119000,"old_price":284900,"talles":"UNICO","imagenes":"https://drive.google.com/thumbnail?id=1Yvw8Z4WUoafMkvdUISe5bLcI0IksoJTP&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":7,"nombre":"Gorra Blanca","costo":15000,"markup":3,"precio":44900,"old_price":97900,"talles":"UNICO","imagenes":"https://drive.google.com/thumbnail?id=1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":8,"nombre":"Gorra Negra","costo":15000,"markup":3,"precio":44900,"old_price":97900,"talles":"UNICO","imagenes":"https://drive.google.com/thumbnail?id=1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":9,"nombre":"Gorra Celeste","costo":15000,"markup":3,"precio":44900,"old_price":97900,"talles":"UNICO","imagenes":"https://drive.google.com/thumbnail?id=1dOJpOiFO2c8_NZBaCzqM4IFKHOL9Q5Ex&sz=w800","activo":"TRUE","destacado":"FALSE"},{"id":10,"nombre":"Camiseta Titular Mundial 2026","costo":25000,"markup":2.7,"precio":67490,"old_price":129000,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":11,"nombre":"FAMILIAR Pack- 4 CAMISETAS","costo":100000,"markup":2.1,"precio":209000,"old_price":516000,"talles":"A confirmar","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":12,"nombre":"CRACK Pack - Camiseta Titular + Camiseta Manga Larga + Prematch","costo":75000,"markup":2.2,"precio":164900,"old_price":388800,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800|https://drive.google.com/thumbnail?id=1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w&sz=w800|https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":13,"nombre":"FAMILIAR FULL Pack - 4 Camisetas + 4 gorras","costo":180000,"markup":2,"precio":359000,"old_price":907600,"talles":"A confirmar","imagenes":"https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800|https://drive.google.com/thumbnail?id=1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":14,"nombre":"RUNNING Pack - Prematch + Short + Rompeviento","costo":78000,"markup":2.2,"precio":171600,"old_price":397700,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800|https://drive.google.com/thumbnail?id=1gIO6dbNj6az_4OM-XNBavoKoh6QEBZgq&sz=w800|https://drive.google.com/thumbnail?id=1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":15,"nombre":"HINCHA Pack - Camiseta Titular + Rompeviento + Gorra","costo":80000,"markup":2.2,"precio":175900,"old_price":421800,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5&sz=w800|https://drive.google.com/thumbnail?id=1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z&sz=w800|https://drive.google.com/thumbnail?id=1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":16,"nombre":"LA REDONDA Pack - Pelota AFA 2026 + Camiseta + Short","costo":93000,"markup":2.1,"precio":195300,"old_price":511800,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=17RGOtkybcQGHil9XOBm1-zmblS9sbSPx&sz=w800|https://drive.google.com/thumbnail?id=1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w&sz=w800|https://drive.google.com/thumbnail?id=1Yvw8Z4WUoafMkvdUISe5bLcI0IksoJTP&sz=w800","activo":"TRUE","destacado":"TRUE"},{"id":17,"nombre":"TURRO Pack - Rompevientos + Gorra AFA + Manga Larga + Short AFA","costo":103000,"markup":2.1,"precio":216300,"old_price":545600,"talles":"S|M|L|XL|XXL","imagenes":"https://drive.google.com/thumbnail?id=1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w&sz=w800|https://drive.google.com/thumbnail?id=1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z&sz=w800|https://drive.google.com/thumbnail?id=1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU&sz=w800|https://drive.google.com/thumbnail?id=1gIO6dbNj6az_4OM-XNBavoKoh6QEBZgq&sz=w800","activo":"TRUE","destacado":"TRUE"}];
+const productos = [
+  // === PRODUCTOS NORMALES ===
+  {
+    id:1, nombre:"Camiseta Titular", precio:67490, old_price:129000, talles:"S|M|L|XL|XXL",
+    fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx","1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1miXPZIRID_O_sbYnOIOLFu6Bg2rn5xy2","1En-qUB0xJVwRrCBUjq6-DG6UmNbtdzYs","18Mfa_hKhhLpSuLB1E05jHN_zl8j2qY-G"],
+    activo:true, destacado:false
+  },
+  {
+    id:2, nombre:"Camiseta Manga Larga", precio:83900, old_price:154900, talles:"M|L",
+    fotos:["1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w"],
+    activo:true, destacado:false
+  },
+  {
+    id:3, nombre:"Campera Rompevientos", precio:99000, old_price:194900, talles:"S|M|L|XL|XXL",
+    fotos:["1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z"],
+    activo:true, destacado:false
+  },
+  {
+    id:4, nombre:"Remera Prematch", precio:53900, old_price:104900, talles:"S|M|L|XL|XXL",
+    fotos:["1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5"],
+    activo:true, destacado:false
+  },
+  {
+    id:5, nombre:"Short AFA", precio:48600, old_price:97900, talles:"S|M|L|XL|XXL",
+    fotos:["1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o"],
+    activo:true, destacado:false
+  },
+  {
+    id:6, nombre:"Pelota AFA 2026", precio:119000, old_price:284900, talles:"UNICO",
+    fotos:["1r3nn0v3fVM9PVvttl77xmC32dwySEt51"],
+    activo:true, destacado:false
+  },
+  {
+    id:7, nombre:"Gorra Blanca", precio:44900, old_price:97900, talles:"UNICO",
+    fotos:["1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU"],
+    activo:true, destacado:false
+  },
+  {
+    id:8, nombre:"Gorra Negra", precio:44900, old_price:97900, talles:"UNICO",
+    fotos:["1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML"],
+    activo:true, destacado:false
+  },
+  {
+    id:9, nombre:"Gorra Celeste", precio:44900, old_price:97900, talles:"UNICO",
+    fotos:["1dOJpOiFO2c8_NZBaCzqM4IFKHOL9Q5Ex"],
+    activo:true, destacado:false
+  },
+  
+  // === PROMOCIONES (DESTACADOS) ===
+  {
+    id:10, nombre:"Camiseta Titular Mundial 2026", precio:67490, old_price:129000, talles:"S|M|L|XL|XXL",
+    fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx","1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1miXPZIRID_O_sbYnOIOLFu6Bg2rn5xy2","1En-qUB0xJVwRrCBUjq6-DG6UmNbtdzYs","18Mfa_hKhhLpSuLB1E05jHN_zl8j2qY-G"],
+    activo:true, destacado:true
+  },
+  {
+    id:11, nombre:"FAMILIAR Pack - 4 Camisetas", precio:209000, old_price:516000, talles:"A confirmar",
+    fotos:["1XZ_qdsUI28cfTniJ-jT1G9TZ__fNY2Eg","1eeBXJFF9feSOmU6lHdKi1ly2KfVUfhjN","14RfqCFyPsNotmxbcZ3UVTyuMXKOYFjpP","1bB7f2OsXENxEhYJWGHSl5EQGj-gnXWfZ","1oA7H7KlirlN6XXUPCdxcC5ghLroS5cIg"],
+    activo:true, destacado:true
+  },
+  {
+    id:12, nombre:"CRACK Pack - Titular + Manga Larga + Prematch", precio:164900, old_price:388800, talles:"S|M|L|XL|XXL",
+    fotos:["1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w","1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5"],
+    activo:true, destacado:true
+  },
+  {
+    id:13, nombre:"FAMILIAR FULL Pack - 4 Camisetas + 4 Gorras", precio:359000, old_price:907600, talles:"A confirmar",
+    fotos:["1b1PGX3PYpzPXHtkNu9aV6W1bRVrE9JMz","1MdDuqxx3GIm6jYjiQuBE2GtdfHKSaeE4","1Ur31z8GDSzC9PFMsUhR44WFSvvVuw-Pe","1QCVTnYVNpEZDSOgIbTMcpYKi0T4TEJLE","1NOkGNne2X1xGIIKXk8WKB8FNMGNS-KDK"],
+    activo:true, destacado:true
+  },
+  {
+    id:14, nombre:"RUNNING Pack - Prematch + Short + Rompeviento", precio:171600, old_price:397700, talles:"S|M|L|XL|XXL",
+    fotos:["1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o","1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z"],
+    activo:true, destacado:true
+  },
+  {
+    id:15, nombre:"HINCHA Pack - Titular + Rompeviento + Gorra", precio:175900, old_price:421800, talles:"S|M|L|XL|XXL",
+    fotos:["1wrVlG3FinP138b3kpLViP4Fliyc2RBTX","1VKsNUufKvb6MRN6ZXtW4GrQ61p_ib7rK","1oo7B8XNe8X02hehRZA4E3Qmv1FZFJCFs","1zfZbgzEV8FdL2e5A9g-AhGcGT-BSqVO6","149yhEqzuHAapK8klAwBIrv99LMhe88nH"],
+    activo:true, destacado:true
+  },
+  {
+    id:16, nombre:"LA REDONDA Pack - Pelota + Camiseta + Short", precio:195300, old_price:511800, talles:"S|M|L|XL|XXL",
+    fotos:["1355Pv2hKBkfXzzAtP_jWBH_9Z3DwRjFR","1r3nn0v3fVM9PVvttl77xmC32dwySEt51","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o"],
+    activo:true, destacado:true
+  },
+  {
+    id:17, nombre:"TURRO Pack - Rompevientos + Gorra + Manga Larga + Short", precio:216300, old_price:545600, talles:"S|M|L|XL|XXL",
+    fotos:["1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w","1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o","1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU","1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML"],
+    activo:true, destacado:true
+  }
+];
 
 /* ════════════════════════════════════════════════════════════════════════════
-   ⬆⬆⬆ FIN ZONA EDITABLE - NO TOQUES NADA ABAJO ⬆⬆⬆
+   ⬆⬆⬆ FIN ZONA EDITABLE ⬆⬆⬆
    ════════════════════════════════════════════════════════════════════════════ */
 
-// ===== CONVERTIR URLs DE DRIVE AL FORMATO MÁS ESTABLE (lh3.googleusercontent) =====
-function convertirURL(url){
-  if(!url) return "";
-  // Si viene como thumbnail?id=XXX, lo convertimos a lh3
-  const match = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-  if(match){
-    return `https://lh3.googleusercontent.com/d/${match[1]}=w800`;
-  }
-  // Si viene como /d/XXX, también
-  const match2 = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  if(match2){
-    return `https://lh3.googleusercontent.com/d/${match2[1]}=w800`;
-  }
-  return url;
+// Convierte un ID de Drive a URL de imagen
+function idToUrl(id){
+  return `https://lh3.googleusercontent.com/d/${id}=w800`;
 }
 
-// ===== INIT =====
 function init(){
   renderProductos();
   renderCart();
+  iniciarAutoRotacion();
 }
 
-// ===== RENDER PRODUCTOS =====
+// ===== AUTO-ROTACIÓN DE IMÁGENES (3.5s por foto, pausa al hover) =====
+let autoRotateInterval = null;
+let pausedProducts = new Set();
+
+function iniciarAutoRotacion(){
+  if(autoRotateInterval) clearInterval(autoRotateInterval);
+  
+  autoRotateInterval = setInterval(() => {
+    Object.keys(galleryIndices).forEach(key => {
+      // Si el producto está en pausa (hover), no rotar
+      if(pausedProducts.has(key)) return;
+      
+      const img = document.getElementById(`img-${key}`);
+      if(!img) return;
+      
+      const imgs = JSON.parse(img.dataset.imgs);
+      // Solo rotar si tiene más de 1 foto
+      if(imgs.length <= 1) return;
+      
+      const nextIdx = (galleryIndices[key] + 1) % imgs.length;
+      cambiarImg(key, nextIdx);
+    });
+  }, 3500); // 3.5 segundos
+}
+
+// Pausar/reanudar al pasar el mouse
+function pausarRotacion(key){
+  pausedProducts.add(key);
+}
+function reanudarRotacion(key){
+  pausedProducts.delete(key);
+}
+
 function renderProductos(){
   const cont = document.getElementById("productsContent");
-  cont.classList.remove("loading");
   cont.innerHTML = "";
 
-  const activos = productos.filter(p => String(p.activo).toUpperCase().trim() === "TRUE");
-  const destacados = activos.filter(p => String(p.destacado).toUpperCase().trim() === "TRUE");
-  const normales = activos.filter(p => String(p.destacado).toUpperCase().trim() !== "TRUE");
+  const activos = productos.filter(p => p.activo);
+  const destacados = activos.filter(p => p.destacado);
+  const normales = activos.filter(p => !p.destacado);
 
   let html = "";
 
@@ -1009,8 +476,7 @@ function productoHTML(p, key, esDestacado){
   const oldStr = Number(p.old_price).toLocaleString("es-AR");
   const cuotaStr = cuota.toLocaleString("es-AR");
 
-  // Múltiples imágenes
-  const imgs = String(p.imagenes).split("|").map(u => convertirURL(u.trim())).filter(u => u);
+  const imgs = p.fotos.map(id => idToUrl(id));
   galleryIndices[key] = 0;
   const tieneGaleria = imgs.length > 1;
 
@@ -1028,7 +494,7 @@ function productoHTML(p, key, esDestacado){
 
   return `
     <div class="product">
-      <div class="product-img-wrap">
+      <div class="product-img-wrap" onmouseenter="pausarRotacion('${key}')" onmouseleave="reanudarRotacion('${key}')">
         ${esDestacado ? '<div class="product-badge">Promo</div>' : ''}
         ${descuento > 0 ? `<div class="product-discount">-${descuento}%</div>` : ''}
         <img class="product-img" id="img-${key}" src="${imgs[0]}" alt="${p.nombre}"
@@ -1058,12 +524,10 @@ function productoHTML(p, key, esDestacado){
   `;
 }
 
-// ===== GALERÍA =====
 function cambiarImg(key, idx){
   const img = document.getElementById(`img-${key}`);
   if(!img) return;
   const imgs = JSON.parse(img.dataset.imgs);
-  // Loop circular
   if(idx < 0) idx = imgs.length - 1;
   if(idx >= imgs.length) idx = 0;
   galleryIndices[key] = idx;
@@ -1074,14 +538,12 @@ function cambiarImg(key, idx){
     img.classList.remove("fading");
   }, 150);
 
-  // Update dots
   const wrap = img.parentElement;
   wrap.querySelectorAll(".gallery-dot").forEach((d, i) => {
     d.classList.toggle("active", i === idx);
   });
 }
 
-// ===== CARRITO =====
 function agregarAlCarrito(key, id){
   const talle = document.getElementById(`talle-${key}`).value;
   if(!talle){
@@ -1092,7 +554,7 @@ function agregarAlCarrito(key, id){
   const p = productos.find(x => x.id === id);
   if(!p) return;
 
-  const primerImg = convertirURL(String(p.imagenes).split("|")[0].trim());
+  const primerImg = idToUrl(p.fotos[0]);
   const existente = cart.find(i => i.id === p.id && i.talle === talle);
   if(existente){
     existente.qty++;
@@ -1179,7 +641,6 @@ function guardarCart(){
   localStorage.setItem("laselec_cart", JSON.stringify(cart));
 }
 
-// ===== CHECKOUT =====
 function mostrarDireccion(){
   const tipo = document.getElementById("tipoEnvio").value;
   document.getElementById("direccion").style.display = tipo === "domicilio" ? "block" : "none";
@@ -1218,7 +679,6 @@ function finalizarPedido(){
   window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
 }
 
-// ===== UI =====
 function toggleCart(forceOpen){
   const drawer = document.getElementById("cartDrawer");
   const overlay = document.getElementById("cartOverlay");
