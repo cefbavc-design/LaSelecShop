@@ -270,8 +270,11 @@ footer p{font-size:0.8rem}
       <div class="total-row"><span>Subtotal</span><span id="subtotal">$0</span></div>
       <div class="total-row grand"><span>Total</span><span id="total">$0</span></div>
     </div>
+    <button class="checkout-btn" style="background:#009EE3;margin-bottom:0.5rem" onclick="pagarConMercadoPago()">
+      💳 Pagar con MercadoPago
+    </button>
     <button class="checkout-btn" onclick="finalizarPedido()">
-      Finalizar por WhatsApp →
+      💬 Finalizar por WhatsApp →
     </button>
   </div>
 </aside>
@@ -285,8 +288,10 @@ footer p{font-size:0.8rem}
 
 <script>
 const WA_NUMBER = "5491136276885";
+const MP_BACKEND_URL = "https://script.google.com/macros/s/AKfycbyC7QBNBSQb2EOUHE0xDOJgzcB1mquYmG7mm1nYz9RE889vlgIZ_cWpBodA7drzWNW6/exec";
 let cart = JSON.parse(localStorage.getItem("laselec_cart")) || [];
 let galleryIndices = {};
+let pagoData = null;
 
 /* ════════════════════════════════════════════════════════════════════════════
    ⬇⬇⬇ ZONA EDITABLE - PRODUCTOS HARDCODEADOS ⬇⬇⬇
@@ -396,6 +401,156 @@ function init(){
   renderProductos();
   renderCart();
   iniciarAutoRotacion();
+  detectarRetornoMP();
+}
+
+// ===== MERCADOPAGO =====
+async function pagarConMercadoPago(){
+  const nombre = document.getElementById("nombre").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const cp = document.getElementById("codigoPostal").value.trim();
+  const tipo = document.getElementById("tipoEnvio").value;
+  const direccion = document.getElementById("direccion").value.trim();
+
+  if(!nombre || !telefono || !cp){
+    showToast("Completá nombre, WhatsApp y CP", false);
+    return;
+  }
+  if(tipo === "domicilio" && !direccion){
+    showToast("Completá la dirección", false);
+    return;
+  }
+
+  if(cart.length === 0){
+    showToast("El carrito está vacío", false);
+    return;
+  }
+
+  // Guardar datos del pedido para usarlos después del pago
+  localStorage.setItem("laselec_pedido_pendiente", JSON.stringify({
+    cart: cart,
+    cliente: { nombre, telefono, cp, tipo, direccion }
+  }));
+
+  // Construir items para MercadoPago
+  const items = cart.map(item => ({
+    title: item.nombre + (item.talle ? ` (${item.talle})` : ""),
+    quantity: item.qty,
+    unit_price: item.precio
+  }));
+
+  showToast("Conectando con MercadoPago...");
+
+  try {
+    // Construir URL con datos como parámetro (evita CORS)
+    const payload = {
+      items: items,
+      payer: { name: nombre }
+    };
+    const url = MP_BACKEND_URL + "?data=" + encodeURIComponent(JSON.stringify(payload));
+    
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if(data.success && data.init_point){
+      // Redirigir a MercadoPago
+      window.location.href = data.init_point;
+    } else {
+      console.error("Error MP:", data);
+      showToast("Error: " + (data.error || "No se pudo conectar"), false);
+    }
+  } catch (error) {
+    console.error("Error fetch MP:", error);
+    showToast("Error al procesar el pago. Probá WhatsApp.", false);
+  }
+}
+
+// Detectar si el usuario vuelve después de pagar
+function detectarRetornoMP(){
+  const params = new URLSearchParams(window.location.search);
+  const payment = params.get("payment");
+  const paymentId = params.get("payment_id");
+  const status = params.get("status");
+
+  if(payment === "success" || (paymentId && status === "approved")){
+    // Recuperar datos del pedido
+    const pendiente = localStorage.getItem("laselec_pedido_pendiente");
+    if(pendiente){
+      pagoData = {
+        ordenId: paymentId || "MP-" + Date.now(),
+        ...JSON.parse(pendiente)
+      };
+      
+      mostrarPagoExitoso();
+    }
+
+    // Limpiar URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+  } else if(payment === "failure"){
+    showToast("El pago fue rechazado", false);
+    window.history.replaceState({}, document.title, window.location.pathname);
+  } else if(payment === "pending"){
+    showToast("Tu pago está pendiente. Te avisaremos.", true);
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+}
+
+function mostrarPagoExitoso(){
+  // Abrir carrito automáticamente
+  toggleCart(true);
+  
+  // Mostrar mensaje grande arriba del carrito
+  const body = document.getElementById("cartBody");
+  const successHTML = `
+    <div style="background:rgba(37,211,102,0.1);border:2px solid var(--verde);border-radius:12px;padding:1.2rem;margin-bottom:1rem;text-align:center">
+      <div style="font-size:2.5rem;margin-bottom:0.5rem">✓</div>
+      <div style="font-weight:700;color:var(--tinta);margin-bottom:0.3rem">¡Pago confirmado!</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--celeste-deep);letter-spacing:0.05em">
+        Orden #${pagoData.ordenId}
+      </div>
+      <button class="checkout-btn" style="margin-top:1rem" onclick="enviarConfirmacionWhatsApp()">
+        📲 Enviar datos de envío a WhatsApp
+      </button>
+    </div>
+  `;
+  body.innerHTML = successHTML;
+  document.getElementById("cartFooter").style.display = "none";
+}
+
+function enviarConfirmacionWhatsApp(){
+  if(!pagoData) return;
+
+  let msg = `*PEDIDO LASELECSHOP* ⭐⭐⭐%0A%0A`;
+  msg += `✅ *PAGO CONFIRMADO en MercadoPago*%0A`;
+  msg += `🧾 *Orden:* ${pagoData.ordenId}%0A%0A`;
+  msg += `*ITEMS:*%0A`;
+  
+  pagoData.cart.forEach(item => {
+    msg += `• ${item.nombre} (${item.talle})%0A`;
+    msg += `   x${item.qty} · $${(item.precio * item.qty).toLocaleString("es-AR")}%0A`;
+  });
+  
+  const total = pagoData.cart.reduce((a, i) => a + (i.precio * i.qty), 0);
+  msg += `%0A*TOTAL PAGADO: $${total.toLocaleString("es-AR")}*%0A%0A`;
+  msg += `━━━━━━━━━━━━%0A`;
+  msg += `👤 *Cliente:* ${pagoData.cliente.nombre}%0A`;
+  msg += `📱 *WhatsApp:* ${pagoData.cliente.telefono}%0A`;
+  msg += `📍 *CP:* ${pagoData.cliente.cp}%0A`;
+  msg += `📦 *Envío:* ${pagoData.cliente.tipo === "sucursal" ? "Sucursal Andreani" : "Domicilio"}`;
+  if(pagoData.cliente.tipo === "domicilio") msg += `%0A🏠 *Dirección:* ${pagoData.cliente.direccion}`;
+
+  window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
+
+  // Limpiar carrito y datos pendientes
+  cart = [];
+  guardarCart();
+  localStorage.removeItem("laselec_pedido_pendiente");
+  pagoData = null;
+  
+  setTimeout(() => {
+    renderCart();
+    toggleCart(false);
+  }, 1000);
 }
 
 // ===== AUTO-ROTACIÓN DE IMÁGENES (3.5s por foto, pausa al hover) =====
