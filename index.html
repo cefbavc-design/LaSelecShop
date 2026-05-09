@@ -288,7 +288,7 @@ footer p{font-size:0.8rem}
 
 <script>
 const WA_NUMBER = "5491136276885";
-const MP_BACKEND_URL = "https://script.google.com/macros/s/AKfycbyC7QBNBSQb2EOUHE0xDOJgzcB1mquYmG7mm1nYz9RE889vlgIZ_cWpBodA7drzWNW6/exec";
+const MP_BACKEND_URL = "https://script.google.com/macros/s/AKfycbyqTAHC-21gTJc-_La6OjsADUBzP44pEsgD2EurjW-PJ93Pp9wKc7qOhWmU8WlmfINK/exec";
 let cart = JSON.parse(localStorage.getItem("laselec_cart")) || [];
 let galleryIndices = {};
 let pagoData = null;
@@ -298,6 +298,12 @@ let pagoData = null;
    ════════════════════════════════════════════════════════════════════════════ */
 
 const productos = [
+  // === PRODUCTO DE PRUEBA $1 ===
+  {
+    id:99, nombre:"🧪 PRUEBA - No comprar", precio:1, old_price:100, talles:"UNICO",
+    fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx"],
+    activo:true, destacado:false
+  },
   // === PRODUCTOS NORMALES ===
   {
     id:1, nombre:"Camiseta Titular", precio:67490, old_price:129000, talles:"S|M|L|XL|XXL",
