@@ -256,10 +256,11 @@ footer p{font-size:0.8rem}
   <div class="cart-footer" id="cartFooter" style="display:none">
     <div class="checkout-form">
       <input class="form-input" id="nombre" placeholder="Tu nombre completo" />
-      <div class="form-row">
-        <input class="form-input" id="telefono" placeholder="WhatsApp" type="tel" />
-        <input class="form-input" id="codigoPostal" placeholder="CP" type="text" maxlength="5" />
-      </div>
+      <input class="form-input" id="email" placeholder="Tu email (para confirmación)" type="email" />
+<div class="form-row">
+  <input class="form-input" id="telefono" placeholder="WhatsApp" type="tel" />
+  <input class="form-input" id="codigoPostal" placeholder="CP" type="text" maxlength="5" />
+</div>
       <select class="form-select" id="tipoEnvio" onchange="mostrarDireccion()">
         <option value="sucursal">📦 Envío a sucursal Andreani</option>
         <option value="domicilio">🏠 Envío a domicilio</option>
@@ -413,13 +414,18 @@ function init(){
 // ===== MERCADOPAGO =====
 async function pagarConMercadoPago(){
   const nombre = document.getElementById("nombre").value.trim();
+  const email = document.getElementById("email").value.trim();
   const telefono = document.getElementById("telefono").value.trim();
   const cp = document.getElementById("codigoPostal").value.trim();
   const tipo = document.getElementById("tipoEnvio").value;
   const direccion = document.getElementById("direccion").value.trim();
 
-  if(!nombre || !telefono || !cp){
-    showToast("Completá nombre, WhatsApp y CP", false);
+  if(!nombre || !email || !telefono || !cp){
+    showToast("Completá nombre, email, WhatsApp y CP", false);
+    return;
+  }
+  if(!email.includes("@") || !email.includes(".")){
+    showToast("Email inválido", false);
     return;
   }
   if(tipo === "domicilio" && !direccion){
@@ -432,10 +438,10 @@ async function pagarConMercadoPago(){
     return;
   }
 
-  // Guardar datos del pedido para usarlos después del pago
+// Guardar datos del pedido para usarlos después del pago
   localStorage.setItem("laselec_pedido_pendiente", JSON.stringify({
     cart: cart,
-    cliente: { nombre, telefono, cp, tipo, direccion }
+    cliente: { nombre, email, telefono, cp, tipo, direccion }
   }));
 
   // Construir items para MercadoPago
@@ -449,9 +455,9 @@ async function pagarConMercadoPago(){
 
   try {
     // Construir URL con datos como parámetro (evita CORS)
-    const payload = {
+ const payload = {
       items: items,
-      payer: { name: nombre }
+      cliente: { nombre, email, telefono, cp, tipo, direccion }
     };
     const url = MP_BACKEND_URL + "?data=" + encodeURIComponent(JSON.stringify(payload));
     
@@ -809,6 +815,7 @@ function mostrarDireccion(){
 
 function finalizarPedido(){
   const nombre = document.getElementById("nombre").value.trim();
+  const email = document.getElementById("email").value.trim();
   const telefono = document.getElementById("telefono").value.trim();
   const cp = document.getElementById("codigoPostal").value.trim();
   const tipo = document.getElementById("tipoEnvio").value;
