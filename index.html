@@ -99,7 +99,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(246,243,236,0.92);backdrop-
 .product-price-row{display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap}
 .product-price{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:0.02em;color:var(--tinta);line-height:1}
 .product-old-price{text-decoration:line-through;color:rgba(11,29,51,0.4);font-size:0.85rem}
-.product-cuotas{font-size:0.72rem;color:rgba(11,29,51,0.6);margin-top:-4px}
+.product-cuotas{font-size:0.95rem;color:rgba(11,29,51,0.6);margin-top:-4px}
 .product-cuotas strong{color:var(--celeste-deep);font-weight:700}
 
 .product-select{width:100%;padding:0.7rem 0.8rem;border:1.5px solid var(--tinta-soft);border-radius:8px;font-family:'Archivo',sans-serif;font-size:0.85rem;font-weight:500;background:white;color:var(--tinta);cursor:pointer;transition:border-color 0.2s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230b1d33' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 0.8rem center;padding-right:2rem}
@@ -180,12 +180,12 @@ footer p{font-size:0.8rem}
 <div class="topbar">
   <div class="topbar-track">
     <span>🚚 Envío gratis +$100.000</span>
-    <span>💳 3 cuotas sin interés</span>
+    <span>💳 6 cuotas sin interés</span>
     <span>⭐⭐⭐ Tres estrellas</span>
     <span>📦 Andreani a todo el país</span>
     <span>🎽 Tela jugador · Importadas</span>
     <span>🚚 Envío gratis +$100.000</span>
-    <span>💳 3 cuotas sin interés</span>
+    <span>💳 6 cuotas sin interés</span>
     <span>⭐⭐⭐ Tres estrellas</span>
     <span>📦 Andreani a todo el país</span>
     <span>🎽 Tela jugador · Importadas</span>
@@ -226,7 +226,7 @@ footer p{font-size:0.8rem}
         <div class="stat-label">Despacho</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">3x</div>
+        <div class="stat-num">6x</div>
         <div class="stat-label">Cuotas</div>
       </div>
     </div>
@@ -638,7 +638,7 @@ function renderProductos(){
 function productoHTML(p, key, esDestacado){
   const talles = String(p.talles).split("|").map(t => t.trim()).filter(t => t);
   const descuento = Math.round((1 - p.precio / p.old_price) * 100);
-  const cuota = Math.round(p.precio / 3);
+  const cuota = Math.round(p.precio / 6);
   const precioStr = Number(p.precio).toLocaleString("es-AR");
   const oldStr = Number(p.old_price).toLocaleString("es-AR");
   const cuotaStr = cuota.toLocaleString("es-AR");
@@ -677,7 +677,7 @@ function productoHTML(p, key, esDestacado){
             <span class="product-price">$${precioStr}</span>
             <span class="product-old-price">$${oldStr}</span>
           </div>
-          <div class="product-cuotas">3 cuotas de <strong>$${cuotaStr}</strong></div>
+          <div class="product-cuotas">6 cuotas de <strong>$${cuotaStr}</strong></div>
         </div>
         <select class="product-select" id="talle-${key}">
           <option value="">Elegir talle</option>
