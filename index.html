@@ -26,13 +26,7 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:'Archivo',sans-serif;
-  background:var(--crema);
-  color:var(--tinta);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:'Archivo',sans-serif;background:var(--crema);color:var(--tinta);line-height:1.5;-webkit-font-smoothing:antialiased}
 
 .topbar{background:var(--tinta);color:white;padding:10px 20px;overflow:hidden;position:relative}
 .topbar-track{display:flex;gap:3rem;white-space:nowrap;animation:scroll 30s linear infinite;font-size:0.8rem;letter-spacing:0.1em;font-weight:500}
@@ -99,7 +93,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(246,243,236,0.92);backdrop-
 .product-price-row{display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap}
 .product-price{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:0.02em;color:var(--tinta);line-height:1}
 .product-old-price{text-decoration:line-through;color:rgba(11,29,51,0.4);font-size:0.85rem}
-.product-cuotas{font-size:0.95rem;color:rgba(11,29,51,0.6);margin-top:-4px}
+.product-cuotas{font-size:0.85rem;color:rgba(11,29,51,0.6);margin-top:-4px}
 .product-cuotas strong{color:var(--celeste-deep);font-weight:700}
 
 .product-select{width:100%;padding:0.7rem 0.8rem;border:1.5px solid var(--tinta-soft);border-radius:8px;font-family:'Archivo',sans-serif;font-size:0.85rem;font-weight:500;background:white;color:var(--tinta);cursor:pointer;transition:border-color 0.2s;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230b1d33' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 0.8rem center;padding-right:2rem}
@@ -107,6 +101,30 @@ nav{position:sticky;top:0;z-index:50;background:rgba(246,243,236,0.92);backdrop-
 
 .product-btn{margin-top:auto;padding:0.85rem;background:var(--tinta);color:white;border:none;border-radius:8px;font-family:'Archivo',sans-serif;font-weight:600;font-size:0.85rem;letter-spacing:0.05em;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
 .product-btn:hover{background:var(--celeste-deep);transform:translateY(-1px)}
+
+/* MODAL DE OPCIONES PARA PACKS */
+.modal-overlay{position:fixed;inset:0;background:rgba(11,29,51,0.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.active{opacity:1;pointer-events:auto}
+.modal-box{background:var(--crema);border-radius:16px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(0.95);transition:transform 0.3s;display:flex;flex-direction:column}
+.modal-overlay.active .modal-box{transform:scale(1)}
+.modal-header{padding:1.3rem 1.5rem;background:white;border-bottom:1px solid var(--tinta-soft);position:sticky;top:0;z-index:5;border-radius:16px 16px 0 0}
+.modal-header h3{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.04em;line-height:1.1}
+.modal-header p{font-size:0.8rem;color:rgba(11,29,51,0.6);margin-top:0.2rem}
+.modal-close{position:absolute;top:1rem;right:1rem;background:var(--tinta-soft);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;color:var(--tinta);transition:background 0.2s}
+.modal-close:hover{background:var(--tinta);color:white}
+.modal-body{padding:1.5rem;flex:1}
+.modal-section{margin-bottom:1.3rem}
+.modal-section:last-child{margin-bottom:0}
+.modal-section-title{font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--celeste-deep);margin-bottom:0.6rem;padding-bottom:0.4rem;border-bottom:1.5px solid var(--celeste-soft)}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:0.6rem}
+.modal-row.single{grid-template-columns:1fr}
+.modal-row label{font-size:0.75rem;font-weight:600;color:rgba(11,29,51,0.7);margin-bottom:0.3rem;display:block}
+.modal-footer{padding:1rem 1.5rem;background:white;border-top:1px solid var(--tinta-soft);position:sticky;bottom:0;border-radius:0 0 16px 16px}
+.modal-footer-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;font-size:0.85rem}
+.modal-footer-info strong{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--tinta)}
+.modal-add-btn{width:100%;padding:0.95rem;background:var(--tinta);color:white;border:none;border-radius:10px;font-family:'Archivo',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.05em;cursor:pointer;text-transform:uppercase;transition:all 0.2s}
+.modal-add-btn:hover{background:var(--celeste-deep)}
+.modal-add-btn:disabled{background:#bbb;cursor:not-allowed}
 
 .cart-overlay{position:fixed;inset:0;background:rgba(11,29,51,0.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:99}
 .cart-overlay.active{opacity:1;pointer-events:auto}
@@ -125,7 +143,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(246,243,236,0.92);backdrop-
 .cart-item-img{width:60px;height:60px;border-radius:8px;background:var(--celeste-soft);object-fit:contain;padding:5px}
 .cart-item-info{flex:1;min-width:0}
 .cart-item-name{font-size:0.85rem;font-weight:600;margin-bottom:0.2rem;line-height:1.3}
-.cart-item-meta{font-size:0.72rem;color:rgba(11,29,51,0.6);margin-bottom:0.5rem}
+.cart-item-meta{font-size:0.72rem;color:rgba(11,29,51,0.6);margin-bottom:0.5rem;line-height:1.35}
 .cart-item-controls{display:flex;align-items:center;gap:0.5rem}
 .qty-btn{background:var(--tinta-soft);border:none;width:24px;height:24px;border-radius:6px;cursor:pointer;font-weight:700;font-size:0.85rem;color:var(--tinta);display:flex;align-items:center;justify-content:center;transition:background 0.2s}
 .qty-btn:hover{background:var(--celeste-deep);color:white}
@@ -170,6 +188,7 @@ footer p{font-size:0.8rem}
   .hero-stats{gap:1.5rem}
   .stat-num{font-size:1.8rem}
   .gallery-arrow{opacity:1;width:28px;height:28px;font-size:0.85rem}
+  .modal-row{grid-template-columns:1fr}
 }
 @media (max-width:380px){.products{grid-template-columns:1fr}}
 </style>
@@ -212,23 +231,12 @@ footer p{font-size:0.8rem}
     <p class="subtitle">— este Mundial no se mira, se juega —</p>
     <div class="hero-quality">🎽 Tela Jugador · <span class="gold">Importadas alta calidad</span></div>
     <br>
-    <button class="hero-cta" onclick="scrollToProducts()">
-      Comprar ahora →
-    </button>
+    <button class="hero-cta" onclick="scrollToProducts()">Comprar ahora →</button>
 
     <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">★★★</div>
-        <div class="stat-label">Tela Jugador</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">24h</div>
-        <div class="stat-label">Despacho</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">6x</div>
-        <div class="stat-label">Cuotas</div>
-      </div>
+      <div class="stat-item"><div class="stat-num">★★★</div><div class="stat-label">Tela Jugador</div></div>
+      <div class="stat-item"><div class="stat-num">24h</div><div class="stat-label">Despacho</div></div>
+      <div class="stat-item"><div class="stat-num">6x</div><div class="stat-label">Cuotas</div></div>
     </div>
   </div>
 </section>
@@ -241,10 +249,27 @@ footer p{font-size:0.8rem}
   <div class="foot-logo">LASELECSHOP</div>
   <div class="foot-stars">★ ★ ★</div>
   <p>© 2026 · Indumentaria mundialista importada · Tela jugador alta calidad</p>
-  <div class="foot-pay">
-    <span>MercadoPago</span>·<span>Andreani</span>·<span>Visa</span>·<span>Mastercard</span>
-  </div>
+  <div class="foot-pay"><span>MercadoPago</span>·<span>Andreani</span>·<span>Visa</span>·<span>Mastercard</span></div>
 </footer>
+
+<!-- MODAL DE OPCIONES PARA PACKS -->
+<div class="modal-overlay" id="modalOverlay" onclick="cerrarModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 id="modalTitulo">Configurá tu pack</h3>
+      <p id="modalSubtitulo">Elegí cada opción</p>
+      <button class="modal-close" onclick="cerrarModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer">
+      <div class="modal-footer-info">
+        <span>Total</span>
+        <strong id="modalPrecio">$0</strong>
+      </div>
+      <button class="modal-add-btn" id="modalAddBtn" onclick="confirmarPack()">Agregar al carrito</button>
+    </div>
+  </div>
+</div>
 
 <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 <aside class="cart" id="cartDrawer">
@@ -257,10 +282,10 @@ footer p{font-size:0.8rem}
     <div class="checkout-form">
       <input class="form-input" id="nombre" placeholder="Tu nombre completo" />
       <input class="form-input" id="email" placeholder="Tu email (para confirmación)" type="email" />
-<div class="form-row">
-  <input class="form-input" id="telefono" placeholder="WhatsApp" type="tel" />
-  <input class="form-input" id="codigoPostal" placeholder="CP" type="text" maxlength="5" />
-</div>
+      <div class="form-row">
+        <input class="form-input" id="telefono" placeholder="WhatsApp" type="tel" />
+        <input class="form-input" id="codigoPostal" placeholder="CP" type="text" maxlength="5" />
+      </div>
       <select class="form-select" id="tipoEnvio" onchange="mostrarDireccion()">
         <option value="sucursal">📦 Envío a sucursal Andreani</option>
         <option value="domicilio">🏠 Envío a domicilio</option>
@@ -286,123 +311,222 @@ footer p{font-size:0.8rem}
 </div>
 
 <a href="https://wa.me/5491136276885" class="wa-float" target="_blank" aria-label="WhatsApp">💬</a>
-
 <script>
 const WA_NUMBER = "5491136276885";
 const MP_BACKEND_URL = "https://script.google.com/macros/s/AKfycbwM3uvOJOnc43FQiHZNSx0qIOE6KdxSzsGXV3Lmxy2d9W1KqfQZJekG5A6bDn20UNve/exec";
 let cart = JSON.parse(localStorage.getItem("laselec_cart")) || [];
 let galleryIndices = {};
 let pagoData = null;
+let packEnConfiguracion = null;
 
 /* ════════════════════════════════════════════════════════════════════════════
-   ⬇⬇⬇ ZONA EDITABLE - PRODUCTOS HARDCODEADOS ⬇⬇⬇
+   ⬇⬇⬇ ZONA EDITABLE - PRODUCTOS ⬇⬇⬇
    ════════════════════════════════════════════════════════════════════════════ */
+
+const TALLES = ["S","M","L","XL","XXL"];
+const COLORES_GORRA = ["Blanca","Negra","Celeste"];
 
 const productos = [
   // === PRODUCTO DE PRUEBA $1 ===
   {
-    id:99, nombre:"🧪 PRUEBA - No comprar", precio:1, old_price:100, talles:"UNICO",
+    id:99, nombre:"🧪 PRUEBA - No comprar", precio:1, old_price:100,
+    opciones:[{label:"Talle", valores:["UNICO"]}],
     fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx"],
     activo:true, destacado:false
   },
- // === PRODUCTOS NORMALES ===
-{
-  id:1, nombre:"Camiseta Titular", precio:74990, old_price:159000, talles:"S|M|L|XL|XXL",
-  fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx","1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1miXPZIRID_O_sbYnOIOLFu6Bg2rn5xy2","1En-qUB0xJVwRrCBUjq6-DG6UmNbtdzYs","18Mfa_hKhhLpSuLB1E05jHN_zl8j2qY-G"],
-  activo:true, destacado:false
-},
-{
-  id:2, nombre:"Camiseta Manga Larga", precio:89900, old_price:189000, talles:"M|L",
-  fotos:["1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w"],
-  activo:true, destacado:false
-},
-{
-  id:3, nombre:"Campera Rompevientos", precio:119000, old_price:199900, talles:"S|M|L|XL|XXL",
-  fotos:["1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z"],
-  activo:true, destacado:false
-},
-{
-  id:4, nombre:"Remera Prematch", precio:59900, old_price:124900, talles:"S|M|L|XL|XXL",
-  fotos:["1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5"],
-  activo:true, destacado:false
-},
-{
-  id:5, nombre:"Short AFA", precio:54000, old_price:97900, talles:"S|M|L|XL|XXL",
-  fotos:["1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o"],
-  activo:true, destacado:false
-},
-{
-  id:6, nombre:"Pelota AFA 2026", precio:149000, old_price:284900, talles:"UNICO",
-  fotos:["1r3nn0v3fVM9PVvttl77xmC32dwySEt51"],
-  activo:true, destacado:false
-},
-{
-  id:7, nombre:"Gorra Blanca", precio:44900, old_price:97900, talles:"UNICO",
-  fotos:["1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU"],
-  activo:true, destacado:false
-},
-{
-  id:8, nombre:"Gorra Negra", precio:44900, old_price:97900, talles:"UNICO",
-  fotos:["1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML"],
-  activo:true, destacado:false
-},
-{
-  id:9, nombre:"Gorra Celeste", precio:44900, old_price:97900, talles:"UNICO",
-  fotos:["1dOJpOiFO2c8_NZBaCzqM4IFKHOL9Q5Ex"],
-  activo:true, destacado:false
-},
 
-// === PROMOCIONES (DESTACADOS) ===
-{
-  id:10, nombre:"Camiseta Titular Mundial 2026", precio:74990, old_price:159000, talles:"S|M|L|XL|XXL",
-  fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx","1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1miXPZIRID_O_sbYnOIOLFu6Bg2rn5xy2","1En-qUB0xJVwRrCBUjq6-DG6UmNbtdzYs","18Mfa_hKhhLpSuLB1E05jHN_zl8j2qY-G"],
-  activo:true, destacado:true
-},
-{
-  id:11, nombre:"FAMILIAR Pack - 4 Camisetas", precio:269000, old_price:636000, talles:"A confirmar",
-  fotos:["1XZ_qdsUI28cfTniJ-jT1G9TZ__fNY2Eg","1eeBXJFF9feSOmU6lHdKi1ly2KfVUfhjN","14RfqCFyPsNotmxbcZ3UVTyuMXKOYFjpP","1bB7f2OsXENxEhYJWGHSl5EQGj-gnXWfZ","1oA7H7KlirlN6XXUPCdxcC5ghLroS5cIg"],
-  activo:true, destacado:true
-},
-{
-  id:12, nombre:"CRACK Pack - Titular + Manga Larga + Prematch", precio:199400, old_price:472900, talles:"S|M|L|XL|XXL",
-  fotos:["1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w","1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5"],
-  activo:true, destacado:true
-},
-{
-  id:13, nombre:"FAMILIAR FULL Pack - 4 Camisetas + 4 Gorras", precio:449000, old_price:1027600, talles:"A confirmar",
-  fotos:["1b1PGX3PYpzPXHtkNu9aV6W1bRVrE9JMz","1MdDuqxx3GIm6jYjiQuBE2GtdfHKSaeE4","1Ur31z8GDSzC9PFMsUhR44WFSvvVuw-Pe","1QCVTnYVNpEZDSOgIbTMcpYKi0T4TEJLE","1NOkGNne2X1xGIIKXk8WKB8FNMGNS-KDK"],
-  activo:true, destacado:true
-},
-{
-  id:14, nombre:"RUNNING Pack - Prematch + Short + Rompeviento", precio:209820, old_price:422700, talles:"S|M|L|XL|XXL",
-  fotos:["1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o","1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z"],
-  activo:true, destacado:true
-},
-{
-  id:15, nombre:"HINCHA Pack - Titular + Rompeviento + Gorra", precio:209500, old_price:456800, talles:"S|M|L|XL|XXL",
-  fotos:["1wrVlG3FinP138b3kpLViP4Fliyc2RBTX","1VKsNUufKvb6MRN6ZXtW4GrQ61p_ib7rK","1oo7B8XNe8X02hehRZA4E3Qmv1FZFJCFs","1zfZbgzEV8FdL2e5A9g-AhGcGT-BSqVO6","149yhEqzuHAapK8klAwBIrv99LMhe88nH"],
-  activo:true, destacado:true
-},
-{
-  id:16, nombre:"LA REDONDA Pack - Pelota + Camiseta + Short", precio:249240, old_price:541800, talles:"S|M|L|XL|XXL",
-  fotos:["1355Pv2hKBkfXzzAtP_jWBH_9Z3DwRjFR","1r3nn0v3fVM9PVvttl77xmC32dwySEt51","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o"],
-  activo:true, destacado:true
-},
-{
-  id:17, nombre:"TURRO Pack - Rompevientos + Gorra + Manga Larga + Short", precio:278100, old_price:584700, talles:"S|M|L|XL|XXL",
-  fotos:["1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w","1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o","1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU","1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML"],
-  activo:true, destacado:true
-}
+  // === PRODUCTOS SUELTOS ===
+  {
+    id:1, nombre:"Camiseta Titular", precio:74990, old_price:159000,
+    opciones:[{label:"Talle", valores:TALLES}],
+    fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx","1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1miXPZIRID_O_sbYnOIOLFu6Bg2rn5xy2","1En-qUB0xJVwRrCBUjq6-DG6UmNbtdzYs","18Mfa_hKhhLpSuLB1E05jHN_zl8j2qY-G"],
+    activo:true, destacado:false
+  },
+  {
+    id:2, nombre:"Camiseta Manga Larga", precio:89900, old_price:189000,
+    opciones:[{label:"Talle", valores:TALLES}],
+    fotos:["1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w"],
+    activo:true, destacado:false
+  },
+  {
+    id:3, nombre:"Campera Rompevientos", precio:119000, old_price:199900,
+    opciones:[
+      {label:"Talle", valores:TALLES},
+      {label:"Color", valores:["Azul","Blanca"]}
+    ],
+    fotos:["1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z"],
+    activo:true, destacado:false
+  },
+  {
+    id:4, nombre:"Remera Prematch", precio:59900, old_price:124900,
+    opciones:[{label:"Talle", valores:TALLES}],
+    fotos:["1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5"],
+    activo:true, destacado:false
+  },
+  {
+    id:5, nombre:"Short AFA", precio:54000, old_price:97900,
+    opciones:[
+      {label:"Talle", valores:TALLES},
+      {label:"Color", valores:["Azul","Blanco"]}
+    ],
+    fotos:["1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o"],
+    activo:true, destacado:false
+  },
+  {
+    id:6, nombre:"Pelota AFA 2026", precio:149000, old_price:284900,
+    opciones:[],
+    fotos:["1r3nn0v3fVM9PVvttl77xmC32dwySEt51"],
+    activo:true, destacado:false
+  },
+  {
+    id:7, nombre:"Gorra AFA", precio:44900, old_price:97900,
+    opciones:[{label:"Color", valores:COLORES_GORRA}],
+    fotos:["1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU","1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML","1dOJpOiFO2c8_NZBaCzqM4IFKHOL9Q5Ex"],
+    activo:true, destacado:false
+  },
+
+  // === DESTACADO (mismo modelo que titular pero como destacado) ===
+  {
+    id:10, nombre:"Camiseta Titular Mundial 2026", precio:74990, old_price:159000,
+    opciones:[{label:"Talle", valores:TALLES}],
+    fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx","1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1miXPZIRID_O_sbYnOIOLFu6Bg2rn5xy2","1En-qUB0xJVwRrCBUjq6-DG6UmNbtdzYs","18Mfa_hKhhLpSuLB1E05jHN_zl8j2qY-G"],
+    activo:true, destacado:true
+  },
+
+  // === PACKS COMPLEJOS (USAN MODAL) ===
+  {
+    id:11, nombre:"FAMILIAR Pack - 4 Camisetas", precio:269000, old_price:636000,
+    esPack:true,
+    packSecciones:[
+      {titulo:"Camiseta 1", campos:[
+        {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
+        {label:"Talle", valores:TALLES}
+      ]},
+      {titulo:"Camiseta 2", campos:[
+        {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
+        {label:"Talle", valores:TALLES}
+      ]},
+      {titulo:"Camiseta 3", campos:[
+        {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
+        {label:"Talle", valores:TALLES}
+      ]},
+      {titulo:"Camiseta 4", campos:[
+        {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
+        {label:"Talle", valores:TALLES}
+      ]}
+    ],
+    fotos:["1XZ_qdsUI28cfTniJ-jT1G9TZ__fNY2Eg","1eeBXJFF9feSOmU6lHdKi1ly2KfVUfhjN","14RfqCFyPsNotmxbcZ3UVTyuMXKOYFjpP","1bB7f2OsXENxEhYJWGHSl5EQGj-gnXWfZ","1oA7H7KlirlN6XXUPCdxcC5ghLroS5cIg"],
+    activo:true, destacado:true
+  },
+  {
+    id:12, nombre:"CRACK Pack - Titular + Manga Larga + Prematch", precio:199400, old_price:472900,
+    esPack:true,
+    packSecciones:[
+      {titulo:"Camiseta Titular", campos:[{label:"Talle", valores:TALLES}]},
+      {titulo:"Camiseta Manga Larga", campos:[{label:"Talle", valores:TALLES}]},
+      {titulo:"Remera Prematch", campos:[{label:"Talle", valores:TALLES}]}
+    ],
+    fotos:["1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w","1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5"],
+    activo:true, destacado:true
+  },
+  {
+    id:13, nombre:"FAMILIAR FULL Pack - 4 Camisetas + 4 Gorras", precio:449000, old_price:1027600,
+    esPack:true,
+    packSecciones:[
+      {titulo:"Camiseta 1", campos:[
+        {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
+        {label:"Talle", valores:TALLES}
+      ]},
+      {titulo:"Camiseta 2", campos:[
+        {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
+        {label:"Talle", valores:TALLES}
+      ]},
+      {titulo:"Camiseta 3", campos:[
+        {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
+        {label:"Talle", valores:TALLES}
+      ]},
+      {titulo:"Camiseta 4", campos:[
+        {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
+        {label:"Talle", valores:TALLES}
+      ]},
+      {titulo:"Gorra 1", campos:[{label:"Color", valores:COLORES_GORRA}]},
+      {titulo:"Gorra 2", campos:[{label:"Color", valores:COLORES_GORRA}]},
+      {titulo:"Gorra 3", campos:[{label:"Color", valores:COLORES_GORRA}]},
+      {titulo:"Gorra 4", campos:[{label:"Color", valores:COLORES_GORRA}]}
+    ],
+    fotos:["1b1PGX3PYpzPXHtkNu9aV6W1bRVrE9JMz","1MdDuqxx3GIm6jYjiQuBE2GtdfHKSaeE4","1Ur31z8GDSzC9PFMsUhR44WFSvvVuw-Pe","1QCVTnYVNpEZDSOgIbTMcpYKi0T4TEJLE","1NOkGNne2X1xGIIKXk8WKB8FNMGNS-KDK"],
+    activo:true, destacado:true
+  },
+  {
+    id:14, nombre:"RUNNING Pack - Prematch + Short + Rompeviento", precio:209820, old_price:422700,
+    esPack:true,
+    packSecciones:[
+      {titulo:"Remera Prematch", campos:[{label:"Talle", valores:TALLES}]},
+      {titulo:"Short AFA", campos:[
+        {label:"Talle", valores:TALLES},
+        {label:"Color", valores:["Azul","Blanco"]}
+      ]},
+      {titulo:"Campera Rompevientos", campos:[
+        {label:"Talle", valores:TALLES},
+        {label:"Color", valores:["Azul","Blanca"]}
+      ]}
+    ],
+    fotos:["1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o","1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z"],
+    activo:true, destacado:true
+  },
+  {
+    id:15, nombre:"HINCHA Pack - Titular + Rompeviento + Gorra", precio:209500, old_price:456800,
+    esPack:true,
+    packSecciones:[
+      {titulo:"Camiseta Titular", campos:[{label:"Talle", valores:TALLES}]},
+      {titulo:"Campera Rompevientos", campos:[
+        {label:"Talle", valores:TALLES},
+        {label:"Color", valores:["Azul","Blanca"]}
+      ]},
+      {titulo:"Gorra AFA", campos:[{label:"Color", valores:COLORES_GORRA}]}
+    ],
+    fotos:["1wrVlG3FinP138b3kpLViP4Fliyc2RBTX","1VKsNUufKvb6MRN6ZXtW4GrQ61p_ib7rK","1oo7B8XNe8X02hehRZA4E3Qmv1FZFJCFs","1zfZbgzEV8FdL2e5A9g-AhGcGT-BSqVO6","149yhEqzuHAapK8klAwBIrv99LMhe88nH"],
+    activo:true, destacado:true
+  },
+  {
+    id:16, nombre:"LA REDONDA Pack - Pelota + Camiseta + Short", precio:249240, old_price:541800,
+    esPack:true,
+    packSecciones:[
+      {titulo:"Camiseta Titular", campos:[{label:"Talle", valores:TALLES}]},
+      {titulo:"Short AFA", campos:[
+        {label:"Talle", valores:TALLES},
+        {label:"Color", valores:["Azul","Blanco"]}
+      ]},
+      {titulo:"Pelota AFA 2026", campos:[]}
+    ],
+    fotos:["1355Pv2hKBkfXzzAtP_jWBH_9Z3DwRjFR","1r3nn0v3fVM9PVvttl77xmC32dwySEt51","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o"],
+    activo:true, destacado:true
+  },
+  {
+    id:17, nombre:"TURRO Pack - Rompevientos + Gorra + Manga Larga + Short", precio:278100, old_price:584700,
+    esPack:true,
+    packSecciones:[
+      {titulo:"Campera Rompevientos", campos:[
+        {label:"Talle", valores:TALLES},
+        {label:"Color", valores:["Azul","Blanca"]}
+      ]},
+      {titulo:"Camiseta Manga Larga", campos:[{label:"Talle", valores:TALLES}]},
+      {titulo:"Short AFA", campos:[
+        {label:"Talle", valores:TALLES},
+        {label:"Color", valores:["Azul","Blanco"]}
+      ]},
+      {titulo:"Gorra AFA", campos:[{label:"Color", valores:COLORES_GORRA}]}
+    ],
+    fotos:["1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w","1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o","1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU","1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML"],
+    activo:true, destacado:true
+  }
 ];
 
 /* ════════════════════════════════════════════════════════════════════════════
    ⬆⬆⬆ FIN ZONA EDITABLE ⬆⬆⬆
    ════════════════════════════════════════════════════════════════════════════ */
 
-// Convierte un ID de Drive a URL de imagen
-function idToUrl(id){
-  return `https://lh3.googleusercontent.com/d/${id}=w800`;
-}
+function idToUrl(id){ return `https://lh3.googleusercontent.com/d/${id}=w800`; }
 
 function init(){
   renderProductos();
@@ -411,262 +535,93 @@ function init(){
   detectarRetornoMP();
 }
 
-// ===== MERCADOPAGO =====
-async function pagarConMercadoPago(){
-  const nombre = document.getElementById("nombre").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const telefono = document.getElementById("telefono").value.trim();
-  const cp = document.getElementById("codigoPostal").value.trim();
-  const tipo = document.getElementById("tipoEnvio").value;
-  const direccion = document.getElementById("direccion").value.trim();
-
-  if(!nombre || !email || !telefono || !cp){
-    showToast("Completá nombre, email, WhatsApp y CP", false);
-    return;
-  }
-  if(!email.includes("@") || !email.includes(".")){
-    showToast("Email inválido", false);
-    return;
-  }
-  if(tipo === "domicilio" && !direccion){
-    showToast("Completá la dirección", false);
-    return;
-  }
-
-  if(cart.length === 0){
-    showToast("El carrito está vacío", false);
-    return;
-  }
-
-// Guardar datos del pedido para usarlos después del pago
-  localStorage.setItem("laselec_pedido_pendiente", JSON.stringify({
-    cart: cart,
-    cliente: { nombre, email, telefono, cp, tipo, direccion }
-  }));
-
-  // Construir items para MercadoPago
-  const items = cart.map(item => ({
-    title: item.nombre + (item.talle ? ` (${item.talle})` : ""),
-    quantity: item.qty,
-    unit_price: item.precio
-  }));
-
-  showToast("Conectando con MercadoPago...");
-
-  try {
-    // Construir URL con datos como parámetro (evita CORS)
- const payload = {
-      items: items,
-      cliente: { nombre, email, telefono, cp, tipo, direccion }
-    };
-    const url = MP_BACKEND_URL + "?data=" + encodeURIComponent(JSON.stringify(payload));
-    
-    const response = await fetch(url);
-    const data = await response.json();
-
-    if(data.success && data.init_point){
-      // Redirigir a MercadoPago
-      window.location.href = data.init_point;
-    } else {
-      console.error("Error MP:", data);
-      showToast("Error: " + (data.error || "No se pudo conectar"), false);
-    }
-  } catch (error) {
-    console.error("Error fetch MP:", error);
-    showToast("Error al procesar el pago. Probá WhatsApp.", false);
-  }
-}
-
-// Detectar si el usuario vuelve después de pagar
-function detectarRetornoMP(){
-  const params = new URLSearchParams(window.location.search);
-  const payment = params.get("payment");
-  const paymentId = params.get("payment_id");
-  const status = params.get("status");
-
-  if(payment === "success" || (paymentId && status === "approved")){
-    // Recuperar datos del pedido
-    const pendiente = localStorage.getItem("laselec_pedido_pendiente");
-    if(pendiente){
-      pagoData = {
-        ordenId: paymentId || "MP-" + Date.now(),
-        ...JSON.parse(pendiente)
-      };
-      
-      mostrarPagoExitoso();
-    }
-
-    // Limpiar URL
-    window.history.replaceState({}, document.title, window.location.pathname);
-  } else if(payment === "failure"){
-    showToast("El pago fue rechazado", false);
-    window.history.replaceState({}, document.title, window.location.pathname);
-  } else if(payment === "pending"){
-    showToast("Tu pago está pendiente. Te avisaremos.", true);
-    window.history.replaceState({}, document.title, window.location.pathname);
-  }
-}
-
-function mostrarPagoExitoso(){
-  // Abrir carrito automáticamente
-  toggleCart(true);
-  
-  // Mostrar mensaje grande arriba del carrito
-  const body = document.getElementById("cartBody");
-  const successHTML = `
-    <div style="background:rgba(37,211,102,0.1);border:2px solid var(--verde);border-radius:12px;padding:1.2rem;margin-bottom:1rem;text-align:center">
-      <div style="font-size:2.5rem;margin-bottom:0.5rem">✓</div>
-      <div style="font-weight:700;color:var(--tinta);margin-bottom:0.3rem">¡Pago confirmado!</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--celeste-deep);letter-spacing:0.05em">
-        Orden #${pagoData.ordenId}
-      </div>
-      <button class="checkout-btn" style="margin-top:1rem" onclick="enviarConfirmacionWhatsApp()">
-        📲 Enviar datos de envío a WhatsApp
-      </button>
-    </div>
-  `;
-  body.innerHTML = successHTML;
-  document.getElementById("cartFooter").style.display = "none";
-}
-
-function enviarConfirmacionWhatsApp(){
-  if(!pagoData) return;
-
-  let msg = `*PEDIDO LASELECSHOP* ⭐⭐⭐%0A%0A`;
-  msg += `✅ *PAGO CONFIRMADO en MercadoPago*%0A`;
-  msg += `🧾 *Orden:* ${pagoData.ordenId}%0A%0A`;
-  msg += `*ITEMS:*%0A`;
-  
-  pagoData.cart.forEach(item => {
-    msg += `• ${item.nombre} (${item.talle})%0A`;
-    msg += `   x${item.qty} · $${(item.precio * item.qty).toLocaleString("es-AR")}%0A`;
-  });
-  
-  const total = pagoData.cart.reduce((a, i) => a + (i.precio * i.qty), 0);
-  msg += `%0A*TOTAL PAGADO: $${total.toLocaleString("es-AR")}*%0A%0A`;
-  msg += `━━━━━━━━━━━━%0A`;
-  msg += `👤 *Cliente:* ${pagoData.cliente.nombre}%0A`;
-  msg += `📱 *WhatsApp:* ${pagoData.cliente.telefono}%0A`;
-  msg += `📍 *CP:* ${pagoData.cliente.cp}%0A`;
-  msg += `📦 *Envío:* ${pagoData.cliente.tipo === "sucursal" ? "Sucursal Andreani" : "Domicilio"}`;
-  if(pagoData.cliente.tipo === "domicilio") msg += `%0A🏠 *Dirección:* ${pagoData.cliente.direccion}`;
-
-  window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
-
-  // Limpiar carrito y datos pendientes
-  cart = [];
-  guardarCart();
-  localStorage.removeItem("laselec_pedido_pendiente");
-  pagoData = null;
-  
-  setTimeout(() => {
-    renderCart();
-    toggleCart(false);
-  }, 1000);
-}
-
-// ===== AUTO-ROTACIÓN DE IMÁGENES (3.5s por foto, pausa al hover) =====
+// ===== AUTO-ROTACIÓN =====
 let autoRotateInterval = null;
 let pausedProducts = new Set();
-
 function iniciarAutoRotacion(){
   if(autoRotateInterval) clearInterval(autoRotateInterval);
-  
   autoRotateInterval = setInterval(() => {
     Object.keys(galleryIndices).forEach(key => {
-      // Si el producto está en pausa (hover), no rotar
       if(pausedProducts.has(key)) return;
-      
       const img = document.getElementById(`img-${key}`);
       if(!img) return;
-      
       const imgs = JSON.parse(img.dataset.imgs);
-      // Solo rotar si tiene más de 1 foto
       if(imgs.length <= 1) return;
-      
       const nextIdx = (galleryIndices[key] + 1) % imgs.length;
       cambiarImg(key, nextIdx);
     });
-  }, 3500); // 3.5 segundos
+  }, 3500);
 }
+function pausarRotacion(key){ pausedProducts.add(key); }
+function reanudarRotacion(key){ pausedProducts.delete(key); }
 
-// Pausar/reanudar al pasar el mouse
-function pausarRotacion(key){
-  pausedProducts.add(key);
-}
-function reanudarRotacion(key){
-  pausedProducts.delete(key);
-}
-
+// ===== RENDER =====
 function renderProductos(){
   const cont = document.getElementById("productsContent");
   cont.innerHTML = "";
-
   const activos = productos.filter(p => p.activo);
   const destacados = activos.filter(p => p.destacado);
   const normales = activos.filter(p => !p.destacado);
 
   let html = "";
-
   if(destacados.length > 0){
-    html += `
-      <div class="section-header">
-        <h2 class="section-title">🔥 Promociones Mundialistas</h2>
-        <span class="section-tag">${destacados.length} packs</span>
-      </div>
-      <div class="products">
-        ${destacados.map((p, i) => productoHTML(p, `dest-${i}`, true)).join("")}
-      </div>
-    `;
+    html += `<div class="section-header">
+      <h2 class="section-title">🔥 Promociones Mundialistas</h2>
+      <span class="section-tag">${destacados.length} packs</span>
+    </div>
+    <div class="products">${destacados.map((p, i) => productoHTML(p, `dest-${i}`, true)).join("")}</div>`;
   }
-
   if(normales.length > 0){
-    html += `
-      <div class="section-header">
-        <h2 class="section-title">Indumentaria</h2>
-        <span class="section-tag">${normales.length} productos</span>
-      </div>
-      <div class="products">
-        ${normales.map((p, i) => productoHTML(p, `norm-${i}`, false)).join("")}
-      </div>
-    `;
+    html += `<div class="section-header">
+      <h2 class="section-title">Indumentaria</h2>
+      <span class="section-tag">${normales.length} productos</span>
+    </div>
+    <div class="products">${normales.map((p, i) => productoHTML(p, `norm-${i}`, false)).join("")}</div>`;
   }
-
   cont.innerHTML = html;
 }
 
 function productoHTML(p, key, esDestacado){
-  const talles = String(p.talles).split("|").map(t => t.trim()).filter(t => t);
   const descuento = Math.round((1 - p.precio / p.old_price) * 100);
   const cuota = Math.round(p.precio / 6);
   const precioStr = Number(p.precio).toLocaleString("es-AR");
   const oldStr = Number(p.old_price).toLocaleString("es-AR");
   const cuotaStr = cuota.toLocaleString("es-AR");
-
   const imgs = p.fotos.map(id => idToUrl(id));
   galleryIndices[key] = 0;
   const tieneGaleria = imgs.length > 1;
 
   const dotsHTML = tieneGaleria ? `
     <div class="gallery-dots">
-      ${imgs.map((_, idx) => `
-        <button class="gallery-dot ${idx === 0 ? 'active' : ''}" 
-                onclick="event.stopPropagation();cambiarImg('${key}', ${idx})"
-                aria-label="Foto ${idx + 1}"></button>
-      `).join("")}
+      ${imgs.map((_, idx) => `<button class="gallery-dot ${idx === 0 ? 'active' : ''}" onclick="event.stopPropagation();cambiarImg('${key}', ${idx})" aria-label="Foto ${idx + 1}"></button>`).join("")}
     </div>
     <button class="gallery-arrow prev" onclick="event.stopPropagation();cambiarImg('${key}', galleryIndices['${key}'] - 1)">‹</button>
     <button class="gallery-arrow next" onclick="event.stopPropagation();cambiarImg('${key}', galleryIndices['${key}'] + 1)">›</button>
   ` : '';
+
+  // Si es pack o tiene muchas opciones, abre modal
+  const usaModal = p.esPack === true;
+
+  // HTML de selects inline (solo para productos simples)
+  let selectsHTML = "";
+  if(!usaModal && p.opciones && p.opciones.length > 0){
+    selectsHTML = p.opciones.map((op, idx) => `
+      <select class="product-select" id="opcion-${key}-${idx}">
+        <option value="">${op.label}: elegir</option>
+        ${op.valores.map(v => `<option value="${v}">${v}</option>`).join("")}
+      </select>
+    `).join("");
+  }
+
+  const btnTexto = usaModal ? "Configurar y agregar →" : "Agregar al carrito";
+  const btnAccion = usaModal ? `abrirModal(${p.id})` : `agregarAlCarrito('${key}', ${p.id})`;
 
   return `
     <div class="product">
       <div class="product-img-wrap" onmouseenter="pausarRotacion('${key}')" onmouseleave="reanudarRotacion('${key}')">
         ${esDestacado ? '<div class="product-badge">Promo</div>' : ''}
         ${descuento > 0 ? `<div class="product-discount">-${descuento}%</div>` : ''}
-        <img class="product-img" id="img-${key}" src="${imgs[0]}" alt="${p.nombre}"
-             data-imgs='${JSON.stringify(imgs)}'
-             onerror="this.style.opacity='0.2';this.alt='Sin foto'" loading="lazy">
+        <img class="product-img" id="img-${key}" src="${imgs[0]}" alt="${p.nombre}" data-imgs='${JSON.stringify(imgs)}' onerror="this.style.opacity='0.2';this.alt='Sin foto'" loading="lazy">
         ${dotsHTML}
       </div>
       <div class="product-body">
@@ -679,13 +634,8 @@ function productoHTML(p, key, esDestacado){
           </div>
           <div class="product-cuotas">6 cuotas de <strong>$${cuotaStr}</strong></div>
         </div>
-        <select class="product-select" id="talle-${key}">
-          <option value="">Elegir talle</option>
-          ${talles.map(t => `<option value="${t}">${t}</option>`).join("")}
-        </select>
-        <button class="product-btn" onclick="agregarAlCarrito('${key}', ${p.id})">
-          Agregar al carrito
-        </button>
+        ${selectsHTML}
+        <button class="product-btn" onclick="${btnAccion}">${btnTexto}</button>
       </div>
     </div>
   `;
@@ -698,31 +648,100 @@ function cambiarImg(key, idx){
   if(idx < 0) idx = imgs.length - 1;
   if(idx >= imgs.length) idx = 0;
   galleryIndices[key] = idx;
-
   img.classList.add("fading");
-  setTimeout(() => {
-    img.src = imgs[idx];
-    img.classList.remove("fading");
-  }, 150);
-
+  setTimeout(() => { img.src = imgs[idx]; img.classList.remove("fading"); }, 150);
   const wrap = img.parentElement;
-  wrap.querySelectorAll(".gallery-dot").forEach((d, i) => {
-    d.classList.toggle("active", i === idx);
-  });
+  wrap.querySelectorAll(".gallery-dot").forEach((d, i) => d.classList.toggle("active", i === idx));
 }
 
-function agregarAlCarrito(key, id){
-  const talle = document.getElementById(`talle-${key}`).value;
-  if(!talle){
-    showToast("Elegí un talle primero", false);
+// ===== MODAL DE PACKS =====
+function abrirModal(productoId){
+  const p = productos.find(x => x.id === productoId);
+  if(!p) return;
+  packEnConfiguracion = p;
+
+  document.getElementById("modalTitulo").textContent = p.nombre;
+  document.getElementById("modalSubtitulo").textContent = "Elegí cada item del pack";
+  document.getElementById("modalPrecio").textContent = "$" + Number(p.precio).toLocaleString("es-AR");
+
+  const body = document.getElementById("modalBody");
+  let html = "";
+
+  p.packSecciones.forEach((seccion, sIdx) => {
+    html += `<div class="modal-section">
+      <div class="modal-section-title">${seccion.titulo}</div>`;
+    
+    if(seccion.campos.length === 0){
+      html += `<p style="font-size:0.85rem;color:rgba(11,29,51,0.5)">Sin opciones (talle único)</p>`;
+    } else {
+      const useGrid = seccion.campos.length > 1;
+      html += `<div class="modal-row ${useGrid ? '' : 'single'}">`;
+      seccion.campos.forEach((campo, cIdx) => {
+        html += `<div>
+          <label>${campo.label}</label>
+          <select class="product-select" id="pack-${sIdx}-${cIdx}">
+            <option value="">Elegir</option>
+            ${campo.valores.map(v => `<option value="${v}">${v}</option>`).join("")}
+          </select>
+        </div>`;
+      });
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+
+  body.innerHTML = html;
+  document.getElementById("modalOverlay").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function cerrarModal(event){
+  if(event && event.target && !event.target.classList.contains("modal-overlay") && event.type === "click") return;
+  document.getElementById("modalOverlay").classList.remove("active");
+  document.body.style.overflow = "";
+  packEnConfiguracion = null;
+}
+
+function confirmarPack(){
+  if(!packEnConfiguracion) return;
+  const p = packEnConfiguracion;
+
+  // Recolectar todas las opciones elegidas
+  let opcionesElegidas = [];
+  let faltaAlguna = false;
+
+  p.packSecciones.forEach((seccion, sIdx) => {
+    let valoresSeccion = [];
+    if(seccion.campos.length === 0){
+      valoresSeccion.push("UNICO");
+    } else {
+      seccion.campos.forEach((campo, cIdx) => {
+        const select = document.getElementById(`pack-${sIdx}-${cIdx}`);
+        const val = select ? select.value : "";
+        if(!val){ faltaAlguna = true; }
+        valoresSeccion.push(`${campo.label}: ${val || "?"}`);
+      });
+    }
+    opcionesElegidas.push({
+      titulo: seccion.titulo,
+      valores: valoresSeccion
+    });
+  });
+
+  if(faltaAlguna){
+    showToast("Te faltan opciones por elegir", false);
     return;
   }
 
-  const p = productos.find(x => x.id === id);
-  if(!p) return;
+  // Construir descripción de opciones
+  const descripcion = opcionesElegidas.map(s => 
+    `${s.titulo} (${s.valores.join(", ")})`
+  ).join(" / ");
 
+  // Agregar al carrito
   const primerImg = idToUrl(p.fotos[0]);
-  const existente = cart.find(i => i.id === p.id && i.talle === talle);
+  // Buscar si ya hay un item idéntico
+  const existente = cart.find(i => i.id === p.id && i.opciones === descripcion);
   if(existente){
     existente.qty++;
   } else {
@@ -731,7 +750,7 @@ function agregarAlCarrito(key, id){
       nombre: p.nombre,
       precio: p.precio,
       img: primerImg,
-      talle: talle,
+      opciones: descripcion,
       qty: 1
     });
   }
@@ -739,7 +758,56 @@ function agregarAlCarrito(key, id){
   guardarCart();
   renderCart();
   showToast(`${p.nombre} agregado`);
-  document.getElementById(`talle-${key}`).value = "";
+  cerrarModal();
+  toggleCart(true);
+}
+
+// ===== CARRITO =====
+function agregarAlCarrito(key, id){
+  const p = productos.find(x => x.id === id);
+  if(!p) return;
+
+  // Recolectar opciones inline
+  let opcionesElegidas = [];
+  if(p.opciones && p.opciones.length > 0){
+    for(let idx = 0; idx < p.opciones.length; idx++){
+      const select = document.getElementById(`opcion-${key}-${idx}`);
+      const val = select ? select.value : "";
+      if(!val){
+        showToast(`Elegí ${p.opciones[idx].label.toLowerCase()}`, false);
+        return;
+      }
+      opcionesElegidas.push(`${p.opciones[idx].label}: ${val}`);
+    }
+  }
+
+  const descripcion = opcionesElegidas.join(" · ") || "Único";
+  const primerImg = idToUrl(p.fotos[0]);
+
+  const existente = cart.find(i => i.id === p.id && i.opciones === descripcion);
+  if(existente){
+    existente.qty++;
+  } else {
+    cart.push({
+      id: p.id,
+      nombre: p.nombre,
+      precio: p.precio,
+      img: primerImg,
+      opciones: descripcion,
+      qty: 1
+    });
+  }
+
+  guardarCart();
+  renderCart();
+  showToast(`${p.nombre} agregado`);
+  // Resetear selects
+  if(p.opciones){
+    p.opciones.forEach((_, idx) => {
+      const select = document.getElementById(`opcion-${key}-${idx}`);
+      if(select) select.value = "";
+    });
+  }
   toggleCart(true);
 }
 
@@ -750,12 +818,10 @@ function renderCart(){
   document.getElementById("cartCount").textContent = count;
 
   if(cart.length === 0){
-    body.innerHTML = `
-      <div class="cart-empty">
-        <div class="cart-empty-icon">🛒</div>
-        <div class="cart-empty-text">Tu carrito está vacío</div>
-      </div>
-    `;
+    body.innerHTML = `<div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <div class="cart-empty-text">Tu carrito está vacío</div>
+    </div>`;
     footer.style.display = "none";
     return;
   }
@@ -765,27 +831,24 @@ function renderCart(){
   cart.forEach((item, i) => {
     const sub = item.precio * item.qty;
     total += sub;
-    html += `
-      <div class="cart-item">
-        <img class="cart-item-img" src="${item.img}" alt="${item.nombre}" onerror="this.style.opacity=0.3">
-        <div class="cart-item-info">
-          <div class="cart-item-name">${item.nombre}</div>
-          <div class="cart-item-meta">Talle: ${item.talle}</div>
-          <div class="cart-item-controls">
-            <button class="qty-btn" onclick="cambiarQty(${i}, -1)">−</button>
-            <span class="qty-display">${item.qty}</span>
-            <button class="qty-btn" onclick="cambiarQty(${i}, 1)">+</button>
-          </div>
-        </div>
-        <div>
-          <div class="cart-item-price">$${sub.toLocaleString("es-AR")}</div>
-          <button class="cart-item-remove" onclick="quitarItem(${i})">Quitar</button>
+    html += `<div class="cart-item">
+      <img class="cart-item-img" src="${item.img}" alt="${item.nombre}" onerror="this.style.opacity=0.3">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.nombre}</div>
+        <div class="cart-item-meta">${item.opciones || "Único"}</div>
+        <div class="cart-item-controls">
+          <button class="qty-btn" onclick="cambiarQty(${i}, -1)">−</button>
+          <span class="qty-display">${item.qty}</span>
+          <button class="qty-btn" onclick="cambiarQty(${i}, 1)">+</button>
         </div>
       </div>
-    `;
+      <div>
+        <div class="cart-item-price">$${sub.toLocaleString("es-AR")}</div>
+        <button class="cart-item-remove" onclick="quitarItem(${i})">Quitar</button>
+      </div>
+    </div>`;
   });
   body.innerHTML = html;
-
   document.getElementById("subtotal").textContent = "$" + total.toLocaleString("es-AR");
   document.getElementById("total").textContent = "$" + total.toLocaleString("es-AR");
   footer.style.display = "block";
@@ -797,23 +860,16 @@ function cambiarQty(i, delta){
   guardarCart();
   renderCart();
 }
-
-function quitarItem(i){
-  cart.splice(i, 1);
-  guardarCart();
-  renderCart();
-}
-
-function guardarCart(){
-  localStorage.setItem("laselec_cart", JSON.stringify(cart));
-}
+function quitarItem(i){ cart.splice(i, 1); guardarCart(); renderCart(); }
+function guardarCart(){ localStorage.setItem("laselec_cart", JSON.stringify(cart)); }
 
 function mostrarDireccion(){
   const tipo = document.getElementById("tipoEnvio").value;
   document.getElementById("direccion").style.display = tipo === "domicilio" ? "block" : "none";
 }
 
-function finalizarPedido(){
+// ===== MERCADOPAGO =====
+async function pagarConMercadoPago(){
   const nombre = document.getElementById("nombre").value.trim();
   const email = document.getElementById("email").value.trim();
   const telefono = document.getElementById("telefono").value.trim();
@@ -821,18 +877,118 @@ function finalizarPedido(){
   const tipo = document.getElementById("tipoEnvio").value;
   const direccion = document.getElementById("direccion").value.trim();
 
-  if(!nombre || !telefono || !cp){
-    showToast("Completá nombre, WhatsApp y CP", false);
-    return;
+  if(!nombre || !email || !telefono || !cp){ showToast("Completá nombre, email, WhatsApp y CP", false); return; }
+  if(!email.includes("@") || !email.includes(".")){ showToast("Email inválido", false); return; }
+  if(tipo === "domicilio" && !direccion){ showToast("Completá la dirección", false); return; }
+  if(cart.length === 0){ showToast("El carrito está vacío", false); return; }
+
+  localStorage.setItem("laselec_pedido_pendiente", JSON.stringify({
+    cart: cart,
+    cliente: { nombre, email, telefono, cp, tipo, direccion }
+  }));
+
+  const items = cart.map(item => ({
+    title: item.nombre + (item.opciones ? ` [${item.opciones}]` : ""),
+    quantity: item.qty,
+    unit_price: item.precio
+  }));
+
+  showToast("Conectando con MercadoPago...");
+
+  try {
+    const payload = { items, cliente: { nombre, email, telefono, cp, tipo, direccion } };
+    const url = MP_BACKEND_URL + "?data=" + encodeURIComponent(JSON.stringify(payload));
+    const response = await fetch(url);
+    const data = await response.json();
+    if(data.success && data.init_point){
+      window.location.href = data.init_point;
+    } else {
+      console.error("Error MP:", data);
+      showToast("Error: " + (data.error || "No se pudo conectar"), false);
+    }
+  } catch (error) {
+    console.error("Error fetch MP:", error);
+    showToast("Error al procesar el pago. Probá WhatsApp.", false);
   }
-  if(tipo === "domicilio" && !direccion){
-    showToast("Completá la dirección", false);
-    return;
+}
+
+function detectarRetornoMP(){
+  const params = new URLSearchParams(window.location.search);
+  const payment = params.get("payment");
+  const paymentId = params.get("payment_id");
+  const status = params.get("status");
+  const orden = params.get("orden");
+
+  if(payment === "success" || (paymentId && status === "approved")){
+    const pendiente = localStorage.getItem("laselec_pedido_pendiente");
+    if(pendiente){
+      pagoData = { ordenId: orden || paymentId || "MP-" + Date.now(), ...JSON.parse(pendiente) };
+      mostrarPagoExitoso();
+    }
+    window.history.replaceState({}, document.title, window.location.pathname);
+  } else if(payment === "failure"){
+    showToast("El pago fue rechazado", false);
+    window.history.replaceState({}, document.title, window.location.pathname);
+  } else if(payment === "pending"){
+    showToast("Tu pago está pendiente. Te avisaremos.", true);
+    window.history.replaceState({}, document.title, window.location.pathname);
   }
+}
+
+function mostrarPagoExitoso(){
+  toggleCart(true);
+  const body = document.getElementById("cartBody");
+  body.innerHTML = `<div style="background:rgba(37,211,102,0.1);border:2px solid var(--verde);border-radius:12px;padding:1.2rem;margin-bottom:1rem;text-align:center">
+    <div style="font-size:2.5rem;margin-bottom:0.5rem">✓</div>
+    <div style="font-weight:700;color:var(--tinta);margin-bottom:0.3rem">¡Pago confirmado!</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--celeste-deep);letter-spacing:0.05em">Orden #${pagoData.ordenId}</div>
+    <button class="checkout-btn" style="margin-top:1rem" onclick="enviarConfirmacionWhatsApp()">📲 Enviar a WhatsApp</button>
+  </div>`;
+  document.getElementById("cartFooter").style.display = "none";
+}
+
+function enviarConfirmacionWhatsApp(){
+  if(!pagoData) return;
+  let msg = `*PEDIDO LASELECSHOP* ⭐⭐⭐%0A%0A`;
+  msg += `✅ *PAGO CONFIRMADO en MercadoPago*%0A`;
+  msg += `🧾 *Orden:* ${pagoData.ordenId}%0A%0A`;
+  msg += `*ITEMS:*%0A`;
+  pagoData.cart.forEach(item => {
+    msg += `• ${item.nombre}%0A`;
+    if(item.opciones) msg += `   ${item.opciones}%0A`;
+    msg += `   x${item.qty} · $${(item.precio * item.qty).toLocaleString("es-AR")}%0A`;
+  });
+  const total = pagoData.cart.reduce((a, i) => a + (i.precio * i.qty), 0);
+  msg += `%0A*TOTAL: $${total.toLocaleString("es-AR")}*%0A%0A`;
+  msg += `━━━━━━━━━━━━%0A`;
+  msg += `👤 *Cliente:* ${pagoData.cliente.nombre}%0A`;
+  msg += `📱 *WhatsApp:* ${pagoData.cliente.telefono}%0A`;
+  msg += `📍 *CP:* ${pagoData.cliente.cp}%0A`;
+  msg += `📦 *Envío:* ${pagoData.cliente.tipo === "sucursal" ? "Sucursal Andreani" : "Domicilio"}`;
+  if(pagoData.cliente.tipo === "domicilio") msg += `%0A🏠 *Dirección:* ${pagoData.cliente.direccion}`;
+  window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
+
+  cart = [];
+  guardarCart();
+  localStorage.removeItem("laselec_pedido_pendiente");
+  pagoData = null;
+  setTimeout(() => { renderCart(); toggleCart(false); }, 1000);
+}
+
+function finalizarPedido(){
+  const nombre = document.getElementById("nombre").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const cp = document.getElementById("codigoPostal").value.trim();
+  const tipo = document.getElementById("tipoEnvio").value;
+  const direccion = document.getElementById("direccion").value.trim();
+
+  if(!nombre || !telefono || !cp){ showToast("Completá nombre, WhatsApp y CP", false); return; }
+  if(tipo === "domicilio" && !direccion){ showToast("Completá la dirección", false); return; }
 
   let msg = `*PEDIDO LASELECSHOP* ⭐⭐⭐%0A%0A`;
   cart.forEach(item => {
-    msg += `• ${item.nombre} (${item.talle})%0A`;
+    msg += `• ${item.nombre}%0A`;
+    if(item.opciones) msg += `   ${item.opciones}%0A`;
     msg += `   x${item.qty} · $${(item.precio * item.qty).toLocaleString("es-AR")}%0A`;
   });
   const total = cart.reduce((a, i) => a + (i.precio * i.qty), 0);
@@ -843,7 +999,6 @@ function finalizarPedido(){
   msg += `📍 *CP:* ${cp}%0A`;
   msg += `📦 *Envío:* ${tipo === "sucursal" ? "Sucursal Andreani" : "Domicilio"}`;
   if(tipo === "domicilio") msg += `%0A🏠 *Dirección:* ${direccion}`;
-
   window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
 }
 
@@ -855,11 +1010,7 @@ function toggleCart(forceOpen){
   overlay.classList.toggle("active", open);
   document.body.style.overflow = open ? "hidden" : "";
 }
-
-function scrollToProducts(){
-  document.getElementById("productsContainer").scrollIntoView({behavior:"smooth"});
-}
-
+function scrollToProducts(){ document.getElementById("productsContainer").scrollIntoView({behavior:"smooth"}); }
 function showToast(msg, success = true){
   const toast = document.getElementById("toast");
   document.getElementById("toastMsg").textContent = msg;
