@@ -429,7 +429,7 @@ const productos = [
     fotos:["1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w","1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5"],
     activo:true, destacado:true
   },
-  {
+    {
     id:13, nombre:"FAMILIAR FULL Pack - 4 Camisetas + 4 Gorras", precio:449000, old_price:1027600,
     esPack:true,
     packSecciones:[
@@ -437,21 +437,21 @@ const productos = [
         {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
         {label:"Talle", valores:TALLES}
       ]},
+      {titulo:"Gorra 1", campos:[{label:"Color", valores:COLORES_GORRA}]},
       {titulo:"Camiseta 2", campos:[
         {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
         {label:"Talle", valores:TALLES}
       ]},
+      {titulo:"Gorra 2", campos:[{label:"Color", valores:COLORES_GORRA}]},
       {titulo:"Camiseta 3", campos:[
         {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
         {label:"Talle", valores:TALLES}
       ]},
+      {titulo:"Gorra 3", campos:[{label:"Color", valores:COLORES_GORRA}]},
       {titulo:"Camiseta 4", campos:[
         {label:"Tipo", valores:["Manga Corta","Manga Larga"]},
         {label:"Talle", valores:TALLES}
       ]},
-      {titulo:"Gorra 1", campos:[{label:"Color", valores:COLORES_GORRA}]},
-      {titulo:"Gorra 2", campos:[{label:"Color", valores:COLORES_GORRA}]},
-      {titulo:"Gorra 3", campos:[{label:"Color", valores:COLORES_GORRA}]},
       {titulo:"Gorra 4", campos:[{label:"Color", valores:COLORES_GORRA}]}
     ],
     fotos:["1b1PGX3PYpzPXHtkNu9aV6W1bRVrE9JMz","1MdDuqxx3GIm6jYjiQuBE2GtdfHKSaeE4","1Ur31z8GDSzC9PFMsUhR44WFSvvVuw-Pe","1QCVTnYVNpEZDSOgIbTMcpYKi0T4TEJLE","1NOkGNne2X1xGIIKXk8WKB8FNMGNS-KDK"],
@@ -613,7 +613,7 @@ function productoHTML(p, key, esDestacado){
     `).join("");
   }
 
-  const btnTexto = usaModal ? "Configurar y agregar →" : "Agregar al carrito";
+  const btnTexto = usaModal ? "Armá tu pack →" : "Agregar al carrito";
   const btnAccion = usaModal ? `abrirModal(${p.id})` : `agregarAlCarrito('${key}', ${p.id})`;
 
   return `
