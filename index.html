@@ -327,25 +327,17 @@ const TALLES = ["S","M","L","XL","XXL"];
 const COLORES_GORRA = ["Blanca","Negra","Celeste"];
 
 const productos = [
-  // === PRODUCTO DE PRUEBA $1 ===
-  {
-    id:99, nombre:"🧪 PRUEBA - No comprar", precio:1, old_price:100,
-    opciones:[{label:"Talle", valores:["UNICO"]}],
-    fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx"],
-    activo:true, destacado:false
-  },
-
   // === PRODUCTOS SUELTOS ===
   {
     id:1, nombre:"Camiseta Titular", precio:74990, old_price:159000,
     opciones:[{label:"Talle", valores:TALLES}],
-    fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx","1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1miXPZIRID_O_sbYnOIOLFu6Bg2rn5xy2","1En-qUB0xJVwRrCBUjq6-DG6UmNbtdzYs","18Mfa_hKhhLpSuLB1E05jHN_zl8j2qY-G"],
+    fotos:["1a49XjNRb0Xpfj2u_kAkqWvYAMQgi0vPL","1h5BQocnR0PLyDnFp7duBSKiOFXvsdffd","11L2QjU1kwGlxchu4w4by5w-gYBfosFIX","1zNqkOZZCYshqgQvLjmYGRpzqvRP2frwZ","1ID6n3b9FNvga4YFZ-QqWlr2cu566k43P"],
     activo:true, destacado:false
   },
   {
     id:2, nombre:"Camiseta Manga Larga", precio:89900, old_price:189000,
     opciones:[{label:"Talle", valores:TALLES}],
-    fotos:["1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w"],
+    fotos:["1gJb732b1QA5MLqz7HGhQgcqwUyE0yhf0","1rfuNerGen7-fVKoj28PkCsBUblmTDM4E"],
     activo:true, destacado:false
   },
   {
@@ -354,13 +346,13 @@ const productos = [
       {label:"Talle", valores:TALLES},
       {label:"Color", valores:["Azul","Blanca"]}
     ],
-    fotos:["1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z"],
+    fotos:["1nd-z1gSemdnqpqM59CSWY9jkKv5YWmwv","1WIvHOxfSaFY9zRN0i_KqSlHi9XeFZ8Fn","1C5VrZJMCuBvtx-msDbrC0bD7P9136KXk"],
     activo:true, destacado:false
   },
   {
     id:4, nombre:"Remera Prematch", precio:59900, old_price:124900,
     opciones:[{label:"Talle", valores:TALLES}],
-    fotos:["1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5"],
+    fotos:["1ga3GeXcwZBV1z0ibHgMn50voUFV-DC6E","1a7wSI1s1jQswXlnhX0aZs5h4bwxAO2Y1"],
     activo:true, destacado:false
   },
   {
@@ -369,31 +361,29 @@ const productos = [
       {label:"Talle", valores:TALLES},
       {label:"Color", valores:["Azul","Blanco"]}
     ],
-    fotos:["1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o"],
+    fotos:["18tWHqaOFsKdDjwQWsMGV52nYhSyBnd5R","1NItUsfENTa1grP1Z6Rhxs72ykreAGCcb","1pRYMb-OoEEZb2lGxTWrogBjFZxqrlhuv"],
     activo:true, destacado:false
   },
   {
-    id:6, nombre:"Pelota AFA 2026", precio:149000, old_price:284900,
+    id:6, nombre:"ARGENTUM - AFA Temporada 25/26", precio:149000, old_price:284900,
     opciones:[],
-    fotos:["1r3nn0v3fVM9PVvttl77xmC32dwySEt51"],
+    fotos:["1PUaqZ7MrgmtTTO4YcfFjwL2C93ntICrk"],
     activo:true, destacado:false
   },
   {
     id:7, nombre:"Gorra AFA", precio:44900, old_price:97900,
     opciones:[{label:"Color", valores:COLORES_GORRA}],
-    fotos:["1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU","1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML","1dOJpOiFO2c8_NZBaCzqM4IFKHOL9Q5Ex"],
+    fotos:["1ZVTo_FDkYR2jqGQr36xmpVD4qQnRRuI0","1eS8aafpVFWJ2FRzIsq6tDkhV25_fTc0p","19ltOcEyxSadwBc5ToIhFK-np_1WUcqXK","1mAsRJkllEfj3qMEcbx4Bbh0Fuo7mmHiS"],
     activo:true, destacado:false
   },
 
-  // === DESTACADO (mismo modelo que titular pero como destacado) ===
+  // === DESTACADOS ===
   {
     id:10, nombre:"Camiseta Titular Mundial 2026", precio:74990, old_price:159000,
     opciones:[{label:"Talle", valores:TALLES}],
-    fotos:["17RGOtkybcQGHil9XOBm1-zmblS9sbSPx","1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1miXPZIRID_O_sbYnOIOLFu6Bg2rn5xy2","1En-qUB0xJVwRrCBUjq6-DG6UmNbtdzYs","18Mfa_hKhhLpSuLB1E05jHN_zl8j2qY-G"],
+    fotos:["1a49XjNRb0Xpfj2u_kAkqWvYAMQgi0vPL","1h5BQocnR0PLyDnFp7duBSKiOFXvsdffd","11L2QjU1kwGlxchu4w4by5w-gYBfosFIX","1zNqkOZZCYshqgQvLjmYGRpzqvRP2frwZ","1ID6n3b9FNvga4YFZ-QqWlr2cu566k43P"],
     activo:true, destacado:true
   },
-
-  // === PACKS COMPLEJOS (USAN MODAL) ===
   {
     id:11, nombre:"FAMILIAR Pack - 4 Camisetas", precio:269000, old_price:636000,
     esPack:true,
@@ -415,7 +405,7 @@ const productos = [
         {label:"Talle", valores:TALLES}
       ]}
     ],
-    fotos:["1XZ_qdsUI28cfTniJ-jT1G9TZ__fNY2Eg","1eeBXJFF9feSOmU6lHdKi1ly2KfVUfhjN","14RfqCFyPsNotmxbcZ3UVTyuMXKOYFjpP","1bB7f2OsXENxEhYJWGHSl5EQGj-gnXWfZ","1oA7H7KlirlN6XXUPCdxcC5ghLroS5cIg"],
+    fotos:["1c94X8yAtAVQ5AlfyDAvb_6lt1yn8IL7L","1a49XjNRb0Xpfj2u_kAkqWvYAMQgi0vPL","1h5BQocnR0PLyDnFp7duBSKiOFXvsdffd","1gJb732b1QA5MLqz7HGhQgcqwUyE0yhf0","1rfuNerGen7-fVKoj28PkCsBUblmTDM4E"],
     activo:true, destacado:true
   },
   {
@@ -426,10 +416,10 @@ const productos = [
       {titulo:"Camiseta Manga Larga", campos:[{label:"Talle", valores:TALLES}]},
       {titulo:"Remera Prematch", campos:[{label:"Talle", valores:TALLES}]}
     ],
-    fotos:["1_mc6KpL-F7EcM7Ob5is45y96mz-CJDIG","1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w","1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5"],
+    fotos:["17c4s9UCZpfeLGaCwa5TEVtSaQDRyeb20","1ga3GeXcwZBV1z0ibHgMn50voUFV-DC6E","1gJb732b1QA5MLqz7HGhQgcqwUyE0yhf0","1a49XjNRb0Xpfj2u_kAkqWvYAMQgi0vPL","1a7wSI1s1jQswXlnhX0aZs5h4bwxAO2Y1"],
     activo:true, destacado:true
   },
-      {
+  {
     id:13, nombre:"LA DUPLA Pack - 2 Camisetas + 2 Gorras", precio:239300, old_price:513800,
     esPack:true,
     packSecciones:[
@@ -444,7 +434,7 @@ const productos = [
       ]},
       {titulo:"Gorra 2", campos:[{label:"Color", valores:COLORES_GORRA}]}
     ],
-    fotos:["1b1PGX3PYpzPXHtkNu9aV6W1bRVrE9JMz","1MdDuqxx3GIm6jYjiQuBE2GtdfHKSaeE4","1Ur31z8GDSzC9PFMsUhR44WFSvvVuw-Pe","1QCVTnYVNpEZDSOgIbTMcpYKi0T4TEJLE","1NOkGNne2X1xGIIKXk8WKB8FNMGNS-KDK"],
+    fotos:["1OOHr1-3sRoOG14L4MgE5lWBIKjvHchXE","1a49XjNRb0Xpfj2u_kAkqWvYAMQgi0vPL","1lK-vgvey6mTYdn5yxUhZZqg-p-8i5XQd","1gJb732b1QA5MLqz7HGhQgcqwUyE0yhf0","1rfuNerGen7-fVKoj28PkCsBUblmTDM4E"],
     activo:true, destacado:true
   },
   {
@@ -461,7 +451,7 @@ const productos = [
         {label:"Color", valores:["Azul","Blanca"]}
       ]}
     ],
-    fotos:["1_OvCE8BOPLZkPSiqyEBuKSc9bIBo9Su5","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o","1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z"],
+    fotos:["1DkNa6sTnQTo5un5oCuuzgVlOghBq1TCp","1nd-z1gSemdnqpqM59CSWY9jkKv5YWmwv","1ga3GeXcwZBV1z0ibHgMn50voUFV-DC6E","1a7wSI1s1jQswXlnhX0aZs5h4bwxAO2Y1","18tWHqaOFsKdDjwQWsMGV52nYhSyBnd5R"],
     activo:true, destacado:true
   },
   {
@@ -475,11 +465,11 @@ const productos = [
       ]},
       {titulo:"Gorra AFA", campos:[{label:"Color", valores:COLORES_GORRA}]}
     ],
-    fotos:["1wrVlG3FinP138b3kpLViP4Fliyc2RBTX","1VKsNUufKvb6MRN6ZXtW4GrQ61p_ib7rK","1oo7B8XNe8X02hehRZA4E3Qmv1FZFJCFs","1zfZbgzEV8FdL2e5A9g-AhGcGT-BSqVO6","149yhEqzuHAapK8klAwBIrv99LMhe88nH"],
+    fotos:["1xvoGK3Zy6663ByoMgC8Di1uvv48fQgKM","13ryHamqukpYNmgEsZ6x765Mi34AgCDnl","1CwcwoLE4oclX8hp0dogf2QirDz-WS40r","1c8F3qyai1lEkmURyr7upbHTtpPYjzXZ3","10zD7jY011b8cmIqAlZDRyE7_qiMccE2c"],
     activo:true, destacado:true
   },
   {
-    id:16, nombre:"LA REDONDA Pack - Pelota + Camiseta + Short", precio:249240, old_price:541800,
+    id:16, nombre:"LA REDONDA Pack - ARGENTUM + Camiseta + Short", precio:249240, old_price:541800,
     esPack:true,
     packSecciones:[
       {titulo:"Camiseta Titular", campos:[{label:"Talle", valores:TALLES}]},
@@ -487,9 +477,9 @@ const productos = [
         {label:"Talle", valores:TALLES},
         {label:"Color", valores:["Azul","Blanco"]}
       ]},
-      {titulo:"Pelota AFA 2026", campos:[]}
+      {titulo:"ARGENTUM - AFA Temporada 25/26", campos:[]}
     ],
-    fotos:["1355Pv2hKBkfXzzAtP_jWBH_9Z3DwRjFR","1r3nn0v3fVM9PVvttl77xmC32dwySEt51","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o"],
+    fotos:["1sG9ps6Hf0Kco92RPa76aIzEcR04TXjxg","18SHtyUOA3ayDDQcXSzAzOHtLi8g3jR7J","1LWXWjzJchZjQ1YxNWYM7nOlvyj0UU2gZ","1Wy_EhHkTgHB7i8IHpE-K-uMmLrsKyEQV","1cIh0HZjIvOdnlRiiX6-8IAB_RkxPDepc"],
     activo:true, destacado:true
   },
   {
@@ -507,7 +497,7 @@ const productos = [
       ]},
       {titulo:"Gorra AFA", campos:[{label:"Color", valores:COLORES_GORRA}]}
     ],
-    fotos:["1a0vUgQ-FwW-jfSIDVhFiVc0xtzHWwN7w","1UsDy3st6Jn1ntqYKxmxPpuhJhqB5h68Z","1ij1w1dPCCXQWWJkzbG9B5zyxLE0MD09o","1NDz9KS03LQ9CviL6NtHquzTq3-q8eTsU","1CaQTWOjGfDhU7xzBzdBSQqiv36NNgRML"],
+    fotos:["14wYm7bVcHyIC_si4tFTNSpJtrXK61G1-","1gJb732b1QA5MLqz7HGhQgcqwUyE0yhf0","1rfuNerGen7-fVKoj28PkCsBUblmTDM4E","1pDrUREKJbnjZxB_2L7kIBskq0QVzVHz4","1Q_1kARl9IAMdVksIZ6vngJ11J2L_ZxRa"],
     activo:true, destacado:true
   }
 ];
