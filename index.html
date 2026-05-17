@@ -586,19 +586,19 @@ function renderProductos(){
   const normales = activos.filter(p => !p.destacado);
 
   let html = "";
-  if(destacados.length > 0){
-    html += `<div class="section-header">
-      <h2 class="section-title">🔥 Promociones Mundialistas</h2>
-      <span class="section-tag">${destacados.length} packs</span>
-    </div>
-    <div class="products">${destacados.map((p, i) => productoHTML(p, `dest-${i}`, true)).join("")}</div>`;
-  }
   if(normales.length > 0){
     html += `<div class="section-header">
       <h2 class="section-title">Indumentaria</h2>
       <span class="section-tag">${normales.length} productos</span>
     </div>
     <div class="products">${normales.map((p, i) => productoHTML(p, `norm-${i}`, false)).join("")}</div>`;
+  }
+  if(destacados.length > 0){
+    html += `<div class="section-header">
+      <h2 class="section-title">🔥 Promociones Mundialistas</h2>
+      <span class="section-tag">${destacados.length} packs</span>
+    </div>
+    <div class="products">${destacados.map((p, i) => productoHTML(p, `dest-${i}`, true)).join("")}</div>`;
   }
   cont.innerHTML = html;
 }
