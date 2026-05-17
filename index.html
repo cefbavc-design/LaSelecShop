@@ -103,6 +103,16 @@ nav{position:sticky;top:0;z-index:50;background:rgba(164,197,226,0.92);backdrop-
 .product-btn{margin-top:auto;padding:0.85rem;background:var(--tinta);color:white;border:none;border-radius:8px;font-family:'Archivo',sans-serif;font-weight:600;font-size:0.85rem;letter-spacing:0.05em;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
 .product-btn:hover{background:var(--negro);transform:translateY(-1px)}
 
+<!-- LIGHTBOX (galería ampliada) -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="cerrarLightbox(event)">
+  <button class="lightbox-close" onclick="cerrarLightbox()">✕</button>
+  <button class="lightbox-arrow prev" onclick="event.stopPropagation();cambiarLightbox(-1)">‹</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-arrow next" onclick="event.stopPropagation();cambiarLightbox(1)">›</button>
+  <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
+</div>
+
+
 /* MODAL DE OPCIONES PARA PACKS */
 .modal-overlay{position:fixed;inset:0;background:rgba(13,26,47,0.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.active{opacity:1;pointer-events:auto}
@@ -631,7 +641,7 @@ function productoHTML(p, key, esDestacado){
 
   return `
     <div class="product">
-      <div class="product-img-wrap" onmouseenter="pausarRotacion('${key}')" onmouseleave="reanudarRotacion('${key}')">
+        <div class="product-img-wrap" onmouseenter="pausarRotacion('${key}')" onmouseleave="reanudarRotacion('${key}')" onclick="abrirLightbox('${key}')">
         ${esDestacado ? '<div class="product-badge">Promo</div>' : ''}
         ${descuento > 0 ? `<div class="product-discount">-${descuento}%</div>` : ''}
         <img class="product-img" id="img-${key}" src="${imgs[0]}" alt="${p.nombre}" data-imgs='${JSON.stringify(imgs)}' onerror="this.style.opacity='0.2';this.alt='Sin foto'" loading="lazy">
@@ -653,6 +663,53 @@ function productoHTML(p, key, esDestacado){
     </div>
   `;
 }
+
+// ===== LIGHTBOX (galería ampliada) =====
+let lightboxImgs = [];
+let lightboxIdx = 0;
+
+function abrirLightbox(key){
+  const img = document.getElementById(`img-${key}`);
+  if(!img) return;
+  lightboxImgs = JSON.parse(img.dataset.imgs);
+  lightboxIdx = galleryIndices[key] || 0;
+  actualizarLightbox();
+  document.getElementById("lightboxOverlay").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function cerrarLightbox(event){
+  if(event && event.target && !event.target.classList.contains("lightbox-overlay")) return;
+  document.getElementById("lightboxOverlay").classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function cambiarLightbox(delta){
+  lightboxIdx += delta;
+  if(lightboxIdx < 0) lightboxIdx = lightboxImgs.length - 1;
+  if(lightboxIdx >= lightboxImgs.length) lightboxIdx = 0;
+  actualizarLightbox();
+}
+
+function actualizarLightbox(){
+  const img = document.getElementById("lightboxImg");
+  img.classList.add("fading");
+  setTimeout(() => {
+    img.src = lightboxImgs[lightboxIdx];
+    img.classList.remove("fading");
+  }, 120);
+  document.getElementById("lightboxCounter").textContent = `${lightboxIdx + 1} / ${lightboxImgs.length}`;
+}
+
+// Cerrar lightbox con ESC, navegar con flechas
+document.addEventListener("keydown", (e) => {
+  const lb = document.getElementById("lightboxOverlay");
+  if(!lb || !lb.classList.contains("active")) return;
+  if(e.key === "Escape") cerrarLightbox({target:{classList:{contains:()=>true}}});
+  if(e.key === "ArrowLeft") cambiarLightbox(-1);
+  if(e.key === "ArrowRight") cambiarLightbox(1);
+});
+
 
 function cambiarImg(key, idx){
   const img = document.getElementById(`img-${key}`);
