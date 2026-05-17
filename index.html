@@ -641,7 +641,7 @@ function productoHTML(p, key, esDestacado){
 
   return `
     <div class="product">
-        <div class="product-img-wrap" onmouseenter="pausarRotacion('${key}')" onmouseleave="reanudarRotacion('${key}')" onclick="abrirLightbox('${key}')">
+        <div class="product-img-wrap" onmouseenter="pausarRotacion('${key}')" onmouseleave="reanudarRotacion('${key}')" onclick="abrirLightbox('${key}')" ontouchend="abrirLightbox('${key}')" style="cursor:pointer">
         ${esDestacado ? '<div class="product-badge">Promo</div>' : ''}
         ${descuento > 0 ? `<div class="product-discount">-${descuento}%</div>` : ''}
         <img class="product-img" id="img-${key}" src="${imgs[0]}" alt="${p.nombre}" data-imgs='${JSON.stringify(imgs)}' onerror="this.style.opacity='0.2';this.alt='Sin foto'" loading="lazy">
