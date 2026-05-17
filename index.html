@@ -103,16 +103,6 @@ nav{position:sticky;top:0;z-index:50;background:rgba(164,197,226,0.92);backdrop-
 .product-btn{margin-top:auto;padding:0.85rem;background:var(--tinta);color:white;border:none;border-radius:8px;font-family:'Archivo',sans-serif;font-weight:600;font-size:0.85rem;letter-spacing:0.05em;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
 .product-btn:hover{background:var(--negro);transform:translateY(-1px)}
 
-<!-- LIGHTBOX (galería ampliada) -->
-<div class="lightbox-overlay" id="lightboxOverlay" onclick="cerrarLightbox(event)">
-  <button class="lightbox-close" onclick="cerrarLightbox()">✕</button>
-  <button class="lightbox-arrow prev" onclick="event.stopPropagation();cambiarLightbox(-1)">‹</button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
-  <button class="lightbox-arrow next" onclick="event.stopPropagation();cambiarLightbox(1)">›</button>
-  <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
-</div>
-
-
 /* MODAL DE OPCIONES PARA PACKS */
 .modal-overlay{position:fixed;inset:0;background:rgba(13,26,47,0.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.active{opacity:1;pointer-events:auto}
@@ -295,6 +285,15 @@ footer p{font-size:0.8rem}
   <p>© 2026 · Indumentaria mundialista importada · Tela jugador alta calidad</p>
   <div class="foot-pay"><span>MercadoPago</span>·<span>Andreani</span>·<span>Visa</span>·<span>Mastercard</span></div>
 </footer>
+
+<!-- LIGHTBOX (galería ampliada) -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="cerrarLightbox(event)">
+  <button class="lightbox-close" onclick="cerrarLightbox()">✕</button>
+  <button class="lightbox-arrow prev" onclick="event.stopPropagation();cambiarLightbox(-1)">‹</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-arrow next" onclick="event.stopPropagation();cambiarLightbox(1)">›</button>
+  <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
+</div>
 
 <!-- MODAL DE OPCIONES PARA PACKS -->
 <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal(event)">
