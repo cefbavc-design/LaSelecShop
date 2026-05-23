@@ -22,7 +22,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1682831572756703&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-  
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
@@ -72,24 +72,26 @@ nav{position:sticky;top:56px;z-index:50;background:rgba(164,197,226,0.92);backdr
 .cart-trigger:hover{background:var(--negro);transform:translateY(-1px)}
 .cart-count-badge{background:var(--oro);color:var(--negro);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800}
 
-.hero{position:relative;padding:80px 24px 60px;text-align:center;background:var(--celeste-fondo);overflow:hidden}
+.hero{position:relative;padding:38px 24px 32px;text-align:center;background:var(--celeste-fondo);overflow:hidden}
 .hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;letter-spacing:0.25em;font-weight:700;color:var(--tinta);text-transform:uppercase;margin-bottom:1.2rem;opacity:0.85}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.65rem;letter-spacing:0.25em;font-weight:700;color:var(--tinta);text-transform:uppercase;margin-bottom:0.8rem;opacity:0.85}
 .hero-eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--tinta);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.6}}
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,8vw,6rem);line-height:0.95;letter-spacing:0.01em;margin-bottom:0.5rem;color:var(--blanco)}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.3rem,5.5vw,3.8rem);line-height:0.95;letter-spacing:0.01em;margin-bottom:0.4rem;color:var(--blanco)}
 .hero h1 .gold{color:var(--oro)}
-.hero .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--tinta);margin-bottom:1.4rem;font-weight:500;opacity:0.85}
-.hero-quality{display:inline-block;background:var(--verde);color:white;padding:0.5rem 1.2rem;border-radius:100px;font-size:0.78rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem}
-.hero-cta{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2rem;background:var(--tinta);color:white;border:none;border-radius:100px;font-family:'Archivo',sans-serif;font-weight:600;font-size:0.95rem;letter-spacing:0.05em;cursor:pointer;transition:all 0.25s;text-decoration:none}
+.hero .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--tinta);margin-bottom:1rem;font-weight:500;opacity:0.85}
+.hero-badges{display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.hero-quality{display:inline-block;background:var(--verde);color:white;padding:0.5rem 1.1rem;border-radius:100px;font-size:0.75rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
+.hero-promo{display:inline-flex;align-items:center;gap:0.4rem;background:var(--oro);color:var(--negro);padding:0.5rem 1.1rem;border-radius:100px;font-size:0.8rem;font-weight:900;letter-spacing:0.04em;text-transform:uppercase;box-shadow:0 4px 14px rgba(212,166,74,0.5);animation:latir 2s ease-in-out infinite}
+.hero-cta{display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 1.8rem;background:var(--tinta);color:white;border:none;border-radius:100px;font-family:'Archivo',sans-serif;font-weight:600;font-size:0.92rem;letter-spacing:0.05em;cursor:pointer;transition:all 0.25s;text-decoration:none}
 .hero-cta:hover{background:var(--negro);transform:translateY(-2px);box-shadow:0 12px 24px rgba(13,26,47,0.3)}
 
-.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem;flex-wrap:wrap}
+.hero-stats{display:flex;justify-content:center;gap:2.2rem;margin-top:1.8rem;flex-wrap:wrap}
 .stat-item{text-align:center}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--blanco);line-height:1}
-.stat-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tinta);margin-top:0.3rem;font-weight:600;opacity:0.85}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--blanco);line-height:1}
+.stat-label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--tinta);margin-top:0.3rem;font-weight:600;opacity:0.85}
 
-.products-container{max-width:1400px;margin:0 auto;padding:40px 24px 80px}
+.products-container{max-width:1400px;margin:0 auto;padding:40px 24px 80px;background:var(--celeste-fondo)}
 .section-header{display:flex;justify-content:space-between;align-items:flex-end;margin:50px 0 25px;padding-bottom:18px;border-bottom:2px solid var(--tinta)}
 .section-header:first-child{margin-top:20px}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:0.02em;line-height:1;color:var(--tinta)}
@@ -295,7 +297,7 @@ nav{position:sticky;top:56px;z-index:50;background:rgba(164,197,226,0.92);backdr
   color:var(--tinta);
   transition:border-color 0.2s, box-shadow 0.2s;
 }
-  
+
 .form-input:focus,
 .form-select:focus{
   outline:none;
@@ -339,7 +341,7 @@ nav{position:sticky;top:56px;z-index:50;background:rgba(164,197,226,0.92);backdr
 .checkout-btn.mp:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(0,158,227,0.3)}
 .checkout-btn.wa{background:var(--tinta);color:white}
 .checkout-btn.wa:hover{transform:translateY(-1px)}
-  
+
 .back-cart-btn{
   width:100%;
   background:var(--tinta);
@@ -390,13 +392,13 @@ footer p{font-size:0.8rem}
 .foot-pay{display:flex;justify-content:center;gap:1rem;margin-top:1.5rem;font-size:0.7rem;letter-spacing:0.1em;color:rgba(255,255,255,0.4);text-transform:uppercase}
 
 @media (max-width:640px){
-  
+
 nav{
   top:72px;
 }
-  
+
   .nav-inner{padding:14px 16px}
-  .hero{padding:50px 20px 40px}
+  .hero{padding:28px 20px 26px}
   .products-container{padding:30px 16px 60px}
   .products{grid-template-columns:repeat(2,1fr);gap:12px}
   .product-body{padding:12px}
@@ -405,8 +407,8 @@ nav{
   .product-transfer{font-size:0.8rem}
   .product-select{padding:0.6rem 0.7rem;font-size:0.78rem;padding-right:1.8rem}
   .product-btn{padding:0.7rem;font-size:0.75rem}
-  .hero-stats{gap:1.5rem}
-  .stat-num{font-size:1.8rem}
+  .hero-stats{gap:1.4rem;margin-top:1.4rem}
+  .stat-num{font-size:1.6rem}
   .gallery-arrow{opacity:1;width:28px;height:28px;font-size:0.85rem}
   .modal-row{grid-template-columns:1fr}
   .lightbox-arrow{width:44px;height:44px;font-size:1.4rem}
@@ -454,12 +456,15 @@ nav{
     <div class="hero-eyebrow"><span class="pulse"></span>Camino al Mundial 2026</div>
     <h1>Defender la <span class="gold">Tercera</span></h1>
     <p class="subtitle">— este Mundial no se mira, se juega —</p>
-    <div class="hero-quality">💸 5% OFF pagando por transferencia</div>
-    <br>
+    <div class="hero-badges">
+      <span class="hero-promo">🎁 10% OFF llevando 2+ unidades</span>
+      <span class="hero-quality">💸 5% OFF por transferencia</span>
+    </div>
     <button class="hero-cta" onclick="scrollToProducts()">Comprar ahora →</button>
 
     <div class="hero-stats">
       <div class="stat-item"><div class="stat-num">★★★</div><div class="stat-label">Tela Jugador</div></div>
+      <div class="stat-item"><div class="stat-num">10%</div><div class="stat-label">OFF x2 unidades</div></div>
       <div class="stat-item"><div class="stat-num">5%</div><div class="stat-label">OFF Transferencia</div></div>
     </div>
   </div>
@@ -573,9 +578,9 @@ nav{
       </select>
       <input class="form-input" id="direccion" placeholder="Dirección completa" style="display:none;" />
     </div>
-    
+
     <div class="totals">
-      
+
       <div class="total-row"><span>Subtotal</span><span id="subtotal">$0</span></div>
       <div class="total-row" id="lineaMultiple" style="display:none;color:var(--verde-deep);font-weight:700"><span>🎁 Descuento x2+ (10%)</span><span>−$0</span></div>
       <div class="total-row grand"><span>Total</span><span id="total">$0</span></div>
@@ -585,7 +590,7 @@ nav{
       <button class="checkout-btn wa" onclick="mostrarCheckout()">
   Continuar compra →
 </button>
-    
+
     <button class="checkout-btn transfer" style="display:none;" onclick="abrirTransferencia()">
       💸 Pagar por transferencia · 5% OFF
     </button>
@@ -1262,13 +1267,14 @@ function copiar(texto){
   navigator.clipboard.writeText(texto).then(() => showToast("Copiado: " + texto)).catch(() => showToast("No se pudo copiar", false));
 }
 function confirmarTransferencia(){
-  fbq('track', 'Purchase', {
-  currency: 'ARS',
-  value: total
-});
   const cliente = validarDatos();
   if(!cliente) return;
   const t = calcularTotales();
+
+  fbq('track', 'Purchase', {
+    currency: 'ARS',
+    value: t.totalTransfer
+  });
 
   const items = cart.map(item => ({
     title: item.nombre + (item.opciones ? ` [${item.opciones}]` : ""),
@@ -1317,9 +1323,10 @@ async function pagarConMercadoPago(){
   fbq('track', 'InitiateCheckout');
   const cliente = validarDatos();
   if(!cliente) return;
-  localStorage.setItem("laselec_pedido_pendiente", JSON.stringify({ cart, cliente }));
 
   const t = calcularTotales();
+  localStorage.setItem("laselec_pedido_pendiente", JSON.stringify({ cart, cliente, total: t.totalConMultiple }));
+
   // Si hay descuento x2+, aplicamos 10% a cada precio unitario
   const factor = t.hayMultiple ? (1 - DESCUENTO_MULTIPLE) : 1;
   const items = cart.map(item => ({
@@ -1407,7 +1414,7 @@ function enviarConfirmacionWhatsApp(){
     if(item.opciones) msg += `   ${item.opciones}%0A`;
     msg += `   x${item.qty} · $${(item.precio * item.qty).toLocaleString("es-AR")}%0A`;
   });
-  const total = pagoData.cart.reduce((a, i) => a + (i.precio * i.qty), 0);
+  const total = pagoData.total || pagoData.cart.reduce((a, i) => a + (i.precio * i.qty), 0);
   msg += `%0A*TOTAL: $${total.toLocaleString("es-AR")}*%0A%0A`;
   msg += `━━━━━━━━━━━━%0A`;
   msg += `👤 *Cliente:* ${pagoData.cliente.nombre}%0A`;
@@ -1463,4 +1470,3 @@ init();
 
 </body>
 </html>
-
