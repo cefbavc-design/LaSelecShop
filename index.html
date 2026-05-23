@@ -821,6 +821,7 @@ function cambiarImg(key, idx){
 let lightboxImgs = [];
 let lightboxIdx = 0;
 function abrirLightbox(key){
+  fbq('track', 'ViewContent');
   const img = document.getElementById(`img-${key}`);
   if(!img) return;
   lightboxImgs = JSON.parse(img.dataset.imgs);
@@ -917,6 +918,7 @@ function confirmarPack(){
   const existente = cart.find(i => i.id === p.id && i.opciones === descripcion);
   if(existente){ existente.qty++; }
   else { cart.push({ id:p.id, nombre:p.nombre, precio:p.precio, img:primerImg, opciones:descripcion, qty:1 }); }
+  fbq('track', 'AddToCart');
   guardarCart();
   renderCart();
   showToast(`${p.nombre} agregado`);
@@ -942,6 +944,7 @@ function agregarAlCarrito(key, id){
   const existente = cart.find(i => i.id === p.id && i.opciones === descripcion);
   if(existente){ existente.qty++; }
   else { cart.push({ id:p.id, nombre:p.nombre, precio:p.precio, img:primerImg, opciones:descripcion, qty:1 }); }
+  fbq('track', 'AddToCart');
   guardarCart();
   renderCart();
   showToast(`${p.nombre} agregado`);
@@ -1047,6 +1050,7 @@ function validarDatos(){
 
 // ===== TRANSFERENCIA =====
 function abrirTransferencia(){
+  fbq('track', 'InitiateCheckout');
   const cliente = validarDatos();
   if(!cliente) return;
   const t = calcularTotales();
@@ -1065,6 +1069,10 @@ function copiar(texto){
   navigator.clipboard.writeText(texto).then(() => showToast("Copiado: " + texto)).catch(() => showToast("No se pudo copiar", false));
 }
 function confirmarTransferencia(){
+  fbq('track', 'Purchase', {
+  currency: 'ARS',
+  value: total
+});
   const cliente = validarDatos();
   if(!cliente) return;
   const t = calcularTotales();
@@ -1113,6 +1121,7 @@ function confirmarTransferencia(){
 
 // ===== MERCADOPAGO =====
 async function pagarConMercadoPago(){
+  fbq('track', 'InitiateCheckout');
   const cliente = validarDatos();
   if(!cliente) return;
   localStorage.setItem("laselec_pedido_pendiente", JSON.stringify({ cart, cliente }));
@@ -1150,10 +1159,26 @@ function detectarRetornoMP(){
   const paymentId = params.get("payment_id");
   const status = params.get("status");
   const orden = params.get("orden");
+
   if(payment === "success" || (paymentId && status === "approved")){
+
     const pendiente = localStorage.getItem("laselec_pedido_pendiente");
+
     if(pendiente){
-      pagoData = { ordenId: orden || paymentId || "MP-" + Date.now(), ...JSON.parse(pendiente) };
+
+      // 🔥 EVENTO PURCHASE META PIXEL
+      const dataPedido = JSON.parse(pendiente);
+
+      fbq('track', 'Purchase', {
+        currency: 'ARS',
+        value: dataPedido.total || 0
+      });
+
+      pagoData = {
+        ordenId: orden || paymentId || "MP-" + Date.now(),
+        ...dataPedido
+      };
+
       mostrarPagoExitoso();
     }
     window.history.replaceState({}, document.title, window.location.pathname);
