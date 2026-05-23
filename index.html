@@ -176,13 +176,31 @@ nav{position:sticky;top:56px;z-index:50;background:rgba(164,197,226,0.92);backdr
 
 .cart-overlay{position:fixed;inset:0;background:rgba(13,26,47,0.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:99}
 .cart-overlay.active{opacity:1;pointer-events:auto}
-.cart{position:fixed;right:0;top:0;width:min(440px,100vw);height:100vh;background:#f7f9fc;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);z-index:100;display:flex;flex-direction:column}
+.cart{
+  position:fixed;
+  right:0;
+  top:0;
+  width:min(440px,100vw);
+  height:100vh;
+  background:#f7f9fc;
+  transform:translateX(100%);
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  z-index:100;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
 .cart.active{transform:translateX(0)}
 .cart-header{padding:1.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--tinta-soft);background:white}
 .cart-header h2{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em;color:var(--tinta)}
 .cart-close{background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--tinta);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
 .cart-close:hover{background:var(--tinta-soft)}
-.cart-body{flex:1;overflow-y:auto;padding:1.2rem 1.5rem}
+.cart-body{
+  flex:1;
+  overflow-y:auto;
+  padding:1.2rem 1.5rem 220px;
+  -webkit-overflow-scrolling:touch;
+}
 .cart-empty{text-align:center;padding:60px 20px;color:rgba(26,46,77,0.5)}
 .cart-empty-icon{font-size:3rem;margin-bottom:1rem;opacity:0.4}
 .cart-empty-text{font-size:0.95rem}
@@ -324,24 +342,25 @@ nav{position:sticky;top:56px;z-index:50;background:rgba(164,197,226,0.92);backdr
   
 .back-cart-btn{
   width:100%;
-  background:#eef3f8;
+  background:var(--tinta);
   border:none;
-  color:var(--tinta);
+  color:white;
   font-size:0.82rem;
   font-weight:700;
   cursor:pointer;
   margin-bottom:0.9rem;
-  padding:0.85rem 1rem;
+  padding:0.9rem 1rem;
   border-radius:12px;
   display:flex;
   align-items:center;
   justify-content:center;
   gap:0.45rem;
   transition:all 0.2s;
+  box-shadow:0 6px 18px rgba(13,26,47,0.18);
 }
 
 .back-cart-btn:hover{
-  background:#dfeaf5;
+  background:var(--negro);
   transform:translateY(-1px);
 }
 
