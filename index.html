@@ -37,10 +37,12 @@ body{font-family:'Archivo',sans-serif;background:var(--celeste-fondo);color:var(
 .countdown-bar .cd-time{display:inline-flex;gap:0.35rem}
 .countdown-bar .cd-unit{background:rgba(255,255,255,0.15);border-radius:6px;padding:0.15rem 0.45rem;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.05em;min-width:42px;text-align:center}
 .countdown-bar .cd-live{background:var(--rojo);padding:0.25rem 0.8rem;border-radius:100px;font-weight:800;animation:pulse 1.5s infinite}
+.countdown-bar .cd-liq{background:var(--rojo);padding:0.2rem 0.7rem;border-radius:6px;font-weight:800;font-size:0.78rem;letter-spacing:0.05em;animation:latir 1.8s ease-in-out infinite}
+@keyframes latir{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:0.85}}
 @media (max-width:480px){.countdown-bar{font-size:0.72rem;gap:0.5rem;padding:7px 10px}.countdown-bar .cd-flags{font-size:1.4rem}.countdown-bar .cd-unit{font-size:0.95rem;min-width:36px;padding:0.12rem 0.35rem}}
 
 .topbar{background:var(--tinta);color:white;padding:10px 20px;overflow:hidden;position:relative}
-.topbar-track{display:flex;gap:3rem;white-space:nowrap;animation:scroll 30s linear infinite;font-size:0.8rem;letter-spacing:0.1em;font-weight:500}
+.topbar-track{display:flex;gap:3rem;white-space:nowrap;animation:scroll 18s linear infinite;font-size:0.8rem;letter-spacing:0.1em;font-weight:500}
 .topbar-track span{display:inline-flex;align-items:center;gap:0.5rem}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -250,16 +252,16 @@ footer p{font-size:0.8rem}
 
 <div class="topbar">
   <div class="topbar-track">
+    <span>🔥 LIQUIDACIÓN MUNDIAL · Precios que vuelan</span>
     <span>💸 5% OFF pagando por transferencia</span>
+    <span>🎁 10% OFF llevando 2 o más unidades</span>
     <span>🚚 Envío gratis a todo el país</span>
     <span>⭐⭐⭐ Tres estrellas</span>
-    <span>📦 Andreani · Despacho 24hs</span>
-    <span>🎽 Tela jugador · Importadas</span>
+    <span>🔥 LIQUIDACIÓN MUNDIAL · Precios que vuelan</span>
     <span>💸 5% OFF pagando por transferencia</span>
+    <span>🎁 10% OFF llevando 2 o más unidades</span>
     <span>🚚 Envío gratis a todo el país</span>
     <span>⭐⭐⭐ Tres estrellas</span>
-    <span>📦 Andreani · Despacho 24hs</span>
-    <span>🎽 Tela jugador · Importadas</span>
   </div>
 </div>
 
@@ -287,7 +289,6 @@ footer p{font-size:0.8rem}
 
     <div class="hero-stats">
       <div class="stat-item"><div class="stat-num">★★★</div><div class="stat-label">Tela Jugador</div></div>
-      <div class="stat-item"><div class="stat-num">24h</div><div class="stat-label">Despacho</div></div>
       <div class="stat-item"><div class="stat-num">5%</div><div class="stat-label">OFF Transferencia</div></div>
     </div>
   </div>
@@ -368,7 +369,7 @@ footer p{font-size:0.8rem}
       <div class="transfer-pasos">
         <b>1.</b> Transferí el total exacto a los datos de arriba.<br>
         <b>2.</b> Tocá el botón verde y mandanos el comprobante por WhatsApp.<br>
-        <b>3.</b> Confirmamos el pago y despachamos en 24hs. 📦
+        <b>3.</b> Confirmamos el pago y despachamos. 📦
       </div>
       <button class="transfer-btn" onclick="confirmarTransferencia()">
         ✅ Ya transferí · Enviar comprobante
@@ -672,7 +673,8 @@ function renderCountdown(){
   const m = Math.floor(diff / 60);
   const s = diff % 60;
 
-  bar.innerHTML = `<span class="cd-flags">🇦🇷 ${r.partido.bandera}</span>
+bar.innerHTML = `<span class="cd-flags">🇦🇷 ${r.partido.bandera}</span>
+    <span class="cd-liq">🔥 LIQUIDACIÓN MUNDIAL</span>
     <span class="cd-time">
       <span class="cd-unit">${d}d</span>
       <span class="cd-unit">${String(h).padStart(2,"0")}h</span>
