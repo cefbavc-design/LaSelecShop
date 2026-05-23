@@ -523,24 +523,26 @@ footer p{font-size:0.8rem}
       </select>
       <input class="form-input" id="direccion" placeholder="Dirección completa" style="display:none;" />
     </div>
-    <button class="checkout-btn wa" onclick="mostrarCheckout()">
-  Continuar compra →
-</button>
-    
     
     <div class="totals">
+      
       <div class="total-row"><span>Subtotal</span><span id="subtotal">$0</span></div>
       <div class="total-row" id="lineaMultiple" style="display:none;color:var(--verde-deep);font-weight:700"><span>🎁 Descuento x2+ (10%)</span><span>−$0</span></div>
       <div class="total-row grand"><span>Total</span><span id="total">$0</span></div>
       <div class="total-transfer"><span>💸 Por transferencia (-5% extra)</span><span id="totalTransfer">$0</span></div>
     </div>
+
+      <button class="checkout-btn wa" onclick="mostrarCheckout()">
+  Continuar compra →
+</button>
+    
     <button class="checkout-btn transfer" style="display:none;" onclick="abrirTransferencia()">
       💸 Pagar por transferencia · 5% OFF
     </button>
     <button class="checkout-btn mp" style="display:none;" onclick="pagarConMercadoPago()">
       💳 Pagar con MercadoPago
     </button>
-    <button class="checkout-btn wa" style="display:none;" onclick="finalizarPedido()">
+    <button class="checkout-btn whatsapp-final" style="display:none;" onclick="finalizarPedido()">
       💬 Consultar por WhatsApp
     </button>
   </div>
@@ -776,7 +778,7 @@ function mostrarCheckout(){
 
   document.querySelector(".checkout-btn.mp").style.display = "flex";
 
-  document.querySelector(".checkout-btn.wa[style]").style.display = "flex";
+  document.querySelector(".whatsapp-final").style.display = "flex";
 
   event.target.style.display = "none";
 }
